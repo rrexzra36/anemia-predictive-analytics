@@ -41,6 +41,7 @@ Untuk mencapai tujuan yang ditetapkan, penelitian ini mengadopsi beberapa langka
 3. Melakukan evaluasi kinerja model menggunakan berbagai metrik evaluasi untuk menilai performa dari model yang dikembangkan.
 
 ## Data Understanding
+<img src="" alt="Deskripsi Gambar"/>
 Dataset yang digunakan dalam proyek machine learning ini merupakan dataset anemia yang terdiri dari 1421 entri data atau record. Dataset ini bersifat open-source, yang berarti tersedia secara bebas untuk digunakan oleh publik, dan telah dipublikasikan oleh Biswa Ranjan Rao melalui platform Kaggle dengan judul [Anemia Dataset](https://www.kaggle.com/datasets/biswaranjanrao/anemia-dataset). Topik utama yang diusung oleh dataset ini adalah kesehatan, khususnya terkait kondisi anemia. Format file dataset tersebut adalah CSV (comma-separated values), yaitu format yang umum digunakan untuk penyimpanan data tabular karena memungkinkan penyusunan data dalam bentuk baris dan kolom. Dengan ukuran file sebesar 34.63 kB, dataset ini relatif ringan dan mudah diakses. Informasi yang terkandung di dalamnya mencakup berbagai fitur yang relevan untuk analisis prediktif anemia, sehingga cocok untuk digunakan dalam pengembangan dan pengujian model machine learning. Penggunaan dataset ini memungkinkan proyek ini untuk memanfaatkan data nyata dalam upaya memprediksi kondisi anemia pada manusia dengan lebih akurat dan efisien.
 
 ### Variabel-variabel pada Restaurant UCI dataset adalah sebagai berikut:
@@ -126,22 +127,78 @@ Pada proyek ini, algoritma machine learning yang diterapkan mencakup beberapa me
 
   3. **Algoritma Random Forest**,  memanfaatkan kombinasi beberapa pohon keputusan (*decision tree*) untuk menghasilkan prediksi yang lebih akurat. Prinsip dasar dari Random Forest adalah bahwa beberapa pohon keputusan yang tidak saling berkorelasi akan berfungsi lebih baik sebagai kelompok dibandingkan jika mereka beroperasi secara individual. Saat Random Forest digunakan sebagai pengklasifikasi, setiap pohon keputusan memberikan satu suara, dan setiap pohon keputusan dapat menghasilkan jawaban yang sama atau berbeda. Sebagai contoh, pohon keputusan A, B, E, dan F mungkin memprediksi hasil 1, sementara pohon keputusan C dan D memprediksi hasil 0. Dengan banyaknya kemungkinan jawaban dari pohon keputusan dan risiko bias yang tinggi, Random Forest mengambil prediksi dari sejumlah pohon keputusan berdasarkan suara mayoritas, sehingga menghasilkan prediksi yang lebih akurat.
   Penerapan algoritma Random Forest akan dilakukan dengan menggunakan modul `RandomForestClassifier()` yang tersedia di library scikit-learn. Parameter n_estimators digunakan untuk menetapkan jumlah pohon (*tree*), di mana proyek ini menggunakan 100 pohon. Setelah menentukan parameter model, langkah selanjutnya adalah membangun model dan melakukan prediksi menggunakan data pengujian. Hasil dari pengujian tersebut akan dievaluasi menggunakan metrik akurasi.
-  
+  <table border="1">
+  <tr>
+    <th>Kelebihan Random Forest</th>
+    <th>Kekurangan Random Forest</th>
+  </tr>
+  <tr>
+    <td>Mampu menangani data dengan dimensi tinggi dan memberikan hasil yang baik pada dataset yang besar.</td>
+    <td>Model dapat menjadi sulit untuk diinterpretasikan dibandingkan dengan model yang lebih sederhana seperti pohon keputusan tunggal.</td>
+  </tr>
+  <tr>
+    <td>Menawarkan ketahanan yang tinggi terhadap overfitting, terutama ketika jumlah pohon yang digunakan cukup banyak.</td>
+    <td>Waktu pelatihan dan prediksi cenderung lebih lama dibandingkan dengan algoritma yang lebih sederhana karena banyaknya pohon yang harus dihitung.</td>
+  </tr>
+  <tr>
+    <td>Memberikan estimasi yang baik untuk feature penting dalam dataset.</td>
+    <td>Penggunaan memori yang lebih besar karena harus menyimpan banyak pohon keputusan.</td>
+  </tr>
+  <tr>
+    <td>Dapat menangani data yang hilang dan tidak memerlukan pemrosesan data yang kompleks sebelum diterapkan.</td>
+    <td>Ketika digunakan untuk masalah regresi, hasilnya bisa menjadi kurang akurat jika tidak ada penyesuaian yang tepat.</td>
+  </tr>
+  <tr>
+    <td>Fleksibel dan dapat digunakan untuk tugas klasifikasi maupun regresi.</td>
+    <td>Hasil yang dihasilkan bisa bervariasi tergantung pada parameter dan set data yang digunakan, memerlukan tuning hyperparameter yang baik.</td>
+  </tr>
+</table>
+
+**Kesimpulan Model:**
+Gambar dibawah ini menunjukkan `confusion matrix` dari tiga model klasifikasi, yaitu K-Nearest Neighbors (KNN), Support Vector Machine (SVM), dan Random Forest (RF). Matriks ini digunakan untuk mengevaluasi kinerja masing-masing model dengan membandingkan hasil prediksi terhadap nilai sebenarnya.
+Model KNN menghasilkan 57 negatif benar (TN) dan 44 positif benar (TP), serta mencatat 4 positif salah (FP) dan 2 negatif salah (FN). Sementara itu, model SVM menunjukkan hasil yang cukup baik dengan 57 TN, 46 TP, dan tidak ada FN, meskipun terdapat 4 FP. Di sisi lain, model RF menunjukkan kinerja terbaik dengan 61 TN dan 46 TP, tanpa adanya FP maupun FN. Secara keseluruhan, semua model menunjukkan performa yang baik, namun **Random Forest menunjukkan akurasi tertinggi di antara ketiga model** tersebut.
+
+<img src="https://raw.githubusercontent.com/rrexzra36/anemia-predictive-analytics/refs/heads/main/images/conf_matrix.png" alt="Confision Matrix"/>
+
+
+
 
 ## Evaluation
-Pada bagian ini anda perlu menyebutkan metrik evaluasi yang digunakan. Lalu anda perlu menjelaskan hasil proyek berdasarkan metrik evaluasi yang digunakan.
+Berikut adalah penjelasan mengenai metrik evaluasi yang digunakan, serta analisis hasil proyek berdasarkan 4 metrik yaitu yaitu **akurasi, precision, recall, dan F1 score**:
+1. **Akurasi (Accuracy)** merupakan rasio jumlah observasi yang diklasifikasikan dengan benar terhadap total observasi. Rumusnya adalah:
+   \[
+   \text{Akurasi} = \frac{\text{True Positives} + \text{True Negatives}}{\text{Total Observasi}}
+   \]
+   Akurasi dapat menyesatkan dalam dataset yang tidak seimbang, sehingga sering dilengkapi dengan presisi dan recall.
+  <br>
+2. **Presisi (Precision)** adalah rasio antara jumlah prediksi positif yang benar dengan total prediksi positif. Rumusnya adalah:
+   \[
+   \text{Presisi} = \frac{\text{True Positives}}{\text{True Positives} + \text{False Positives}}
+   \]
+   Presisi penting dalam konteks di mana biaya dari false positives (prediksi positif yang salah) tinggi.
+   <br>
+3.  **Recall** digunakan untuk mengukur kemampuan model untuk menemukan semua kasus relevan (yaitu, true positives). Rumusnya adalah:
+   \[
+   \text{Recall} = \frac{\text{True Positives}}{\text{True Positives} + \text{False Negatives}}
+   \]
+   Recall sangat penting dalam situasi di mana kehilangan kasus positif (false negative) dapat berakibat serius.
+  <br>
+4. **Skor F1 (F1 Score)** adalah rata-rata harmonis antara presisi dan recall, memberikan keseimbangan antara kedua metrik tersebut. Rumusnya adalah:
+   \[
+   \text{Skor F1} = 2 \cdot \frac{\text{Presisi} \cdot \text{Recall}}{\text{Presisi} + \text{Recall}}
+   \]
+   Skor F1 berguna ketika Anda membutuhkan satu metrik untuk menilai kinerja, terutama pada kelas yang tidak seimbang.
 
-Sebagai contoh, Anda memiih kasus klasifikasi dan menggunakan metrik **akurasi, precision, recall, dan F1 score**. Jelaskan mengenai beberapa hal berikut:
-- Penjelasan mengenai metrik yang digunakan
-- Menjelaskan hasil proyek berdasarkan metrik evaluasi
+Dalam hal ini, metrik evaluasi yang dipilih untuk model machine learning ini adalah **recall**, yang sangat relevan untuk deteksi penyakit. Recall akan mengukur seberapa banyak *actual positive* yang dapat diidentifikasi oleh model. Ketika seorang pasien yang menderita anemia (*actual positive*) menjalani tes dan diprediksi tidak menderita anemia (*predicted negative*), biaya yang timbul akibat *false negative* bisa sangat tinggi jika penyakit tersebut tidak segera ditangani. Ini menekankan pentingnya memiliki model dengan nilai recall yang tinggi agar tidak salah dalam memprediksi pasien yang sebenarnya menderita anemia. Rumus recall adalah: 
+\[
+   \text{Recall} = \frac{\text{True Positives}}{\text{True Positives} + \text{False Negatives}}
+   \] 
+dengan TP menunjukkan true positive. Nilai ideal untuk recall adalah 1, yang menunjukkan tidak adanya *false negative* (FN = 0). Ketika nilai FN meningkat, nilai penyebut akan lebih besar dibandingkan dengan pembilang, sehingga menyebabkan penurunan nilai recall.
 
-Ingatlah, metrik evaluasi yang digunakan harus sesuai dengan konteks data, problem statement, dan solusi yang diinginkan.
+**Keterangan:**
+- **True Positive (TP)**: Model memprediksi benar dan hasil aktualnya positif.
+- **True Negative (TN)**: Model memprediksi benar tetapi hasil aktualnya negatif.
+- **False Positive (FP)**: Model memprediksi positif, tetapi hasil yang benar adalah negatif.
+- **False Negative (FN)**: Model memprediksi negatif, tetapi hasil yang benar adalah positif.
 
-**Rubrik/Kriteria Tambahan (Opsional)**: 
-- Menjelaskan formula metrik dan bagaimana metrik tersebut bekerja.
-
-**---Ini adalah bagian akhir laporan---**
-
-_Catatan:_
-- _Anda dapat menambahkan gambar, kode, atau tabel ke dalam laporan jika diperlukan. Temukan caranya pada contoh dokumen markdown di situs editor [Dillinger](https://dillinger.io/), [Github Guides: Mastering markdown](https://guides.github.com/features/mastering-markdown/), atau sumber lain di internet. Semangat!_
-- Jika terdapat penjelasan yang harus menyertakan code snippet, tuliskan dengan sewajarnya. Tidak perlu menuliskan keseluruhan kode project, cukup bagian yang ingin dijelaskan saja.
+Dalam proyek machine learning ini, model yang dianggap paling efektif berdasarkan algoritma yang digunakan adalah **Random Forest**, yang menghasilkan nilai recall tertinggi di antara ketiga algoritma yang diterapkan, yaitu **1.0**.

@@ -4,12 +4,6 @@
 
 Anemia merupakan kondisi kesehatan yang ditandai dengan rendahnya kadar hemoglobin dalam darah, sehingga tubuh tidak mendapatkan cukup oksigen yang dibutuhkan untuk fungsi optimal. Kondisi ini menjadi perhatian kesehatan masyarakat global, terutama di negara berkembang, karena prevalensinya yang tinggi dan dampaknya terhadap produktivitas serta kualitas hidup. Predictive analysis atau analisis prediktif menjadi salah satu pendekatan yang efektif dalam mendeteksi risiko anemia lebih awal, yang memungkinkan intervensi yang tepat waktu dan lebih efisien. Laporan ini berfokus pada penerapan teknik predictive analysis untuk memprediksi kemungkinan seseorang menderita anemia berdasarkan data yang tersedia, serta memberikan wawasan bagi pengambilan keputusan dalam upaya pencegahan dan penanganan anemia secara lebih terarah.
 
-**Rubrik/Kriteria Tambahan (Opsional)**:
-- Jelaskan mengapa dan bagaimana masalah tersebut harus diselesaikan
-- Menyertakan hasil riset terkait atau referensi. Referensi yang diberikan harus berasal dari sumber yang kredibel dan author yang jelas.
-  
-  Format Referensi: [Judul Referensi](https://scholar.google.com/) 
-
 ## Business Understanding
 
 ### Problem Statements
@@ -56,63 +50,55 @@ Dataset yang digunakan dalam proyek machine learning ini merupakan dataset anemi
 
 **Hasil Visualisasi dan Analisis Data:**
   1. **Univariate Analysis** 
-<p align="center">
-    <img src="https://raw.githubusercontent.com/rrexzra36/anemia-predictive-analytics/refs/heads/main/images/uni_analysis.png" width="35%" />
-</p>
+  <p align="center">
+      <img src="https://raw.githubusercontent.com/rrexzra36/anemia-predictive-analytics/refs/heads/main/images/uni_analysis.png" width="35%" />
+  </p>
   Dari keseluruhan populasi, 46,3% orang terindikasi menderita anemia, sementara 53,7% lainnya tidak mengalami anemia. Dengan demikian, meskipun sedikit lebih dari separuh populasi tidak terpengaruh oleh anemia, hampir setengah dari total populasi masih mengalami kondisi tersebut, menunjukkan prevalensi anemia yang signifikan.
 
   2. **Bivariate Analysis**
-<p align="center">
-    <img src="https://raw.githubusercontent.com/rrexzra36/anemia-predictive-analytics/refs/heads/main/images/bi_analysis.png" width="35%" />
-</p>
+  <p align="center">
+      <img src="https://raw.githubusercontent.com/rrexzra36/anemia-predictive-analytics/refs/heads/main/images/bi_analysis.png" width="35%" />
+  </p>
   Berdasarkan analisis boxplot, dapat disimpulkan bahwa terdapat perbedaan signifikan pada kadar hemoglobin berdasarkan jenis kelamin dan hasil tes. Pria secara umum memiliki kadar hemoglobin yang lebih tinggi dibandingkan wanita, baik pada kelompok dengan hasil tes positif maupun negatif. Selain itu, hasil tes juga mempengaruhi kadar hemoglobin, di mana individu dengan hasil negatif cenderung memiliki kadar hemoglobin yang lebih tinggi dibandingkan individu dengan hasil positif. Kelompok wanita dengan hasil positif menunjukkan kadar hemoglobin terendah dibandingkan kelompok lainnya, bahkan terdapat beberapa outlier yang menunjukkan nilai hemoglobin sangat rendah. Secara keseluruhan, pria dengan hasil negatif memiliki rentang kadar hemoglobin yang lebih luas dan lebih tinggi, sementara wanita dengan hasil positif memiliki rentang kadar hemoglobin yang lebih sempit dengan nilai yang lebih rendah.
 
 
   3. **Multivariate Analysis**
-<p align="center">
-    <img src="https://raw.githubusercontent.com/rrexzra36/anemia-predictive-analytics/refs/heads/main/images/multi_analysis.png" width="35%" />
-</p>
+  <p align="center">
+      <img src="https://raw.githubusercontent.com/rrexzra36/anemia-predictive-analytics/refs/heads/main/images/multi_analysis.png" width="35%" />
+  </p>
   Scatter plot di antara variabel-variabel ini memperlihatkan pola-pola hubungan yang tersebar, meskipun untuk beberapa variabel (seperti Hemoglobin dan MCV), terdapat pemisahan yang lebih jelas antara individu yang anemik dan tidak anemik. Pairplot ini membantu mengidentifikasi pola keterkaitan antar variabel serta bagaimana hasil tes anemia mempengaruhi distribusi variabel-variabel tersebut.
   
   4. **Outlier & Distribution Analysis**
-<div style="display: flex; justify-content: center; align-items: center;">
-  <div style="margin: 10px;">
-    <img src="https://raw.githubusercontent.com/rrexzra36/anemia-predictive-analytics/refs/heads/main/images/out_boxplot.png" alt="Deskripsi Gambar 1" style="width: 300px; height: auto;">
-  </div>
-  <div style="margin: 10px;">
-    <img src="https://raw.githubusercontent.com/rrexzra36/anemia-predictive-analytics/refs/heads/main/images/out_hist.png" alt="Deskripsi Gambar 2" style="width: 300px; height: auto;">
-  </div>
-</div>
-Visualisasi boxplot berguna untuk mendeteksi keberadaan outlier pada setiap fitur. Dari analisis data yang digunakan, tidak terdapat outlier yang teridentifikasi. Selanjutnya, pada histogram distribusi normal, fitur MCH, MCHC, dan MCV menunjukkan pola distribusi yang normal. Di sisi lain, fitur Hemoglobin menunjukkan kecenderungan sedikit miring ke arah kiri (left-skewed).
+  <p align="center">
+      <img src="https://raw.githubusercontent.com/rrexzra36/anemia-predictive-analytics/refs/heads/main/images/out_boxplot.png" width="35%" />
+  </p>
+  <p align="center">
+      <img src="https://raw.githubusercontent.com/rrexzra36/anemia-predictive-analytics/refs/heads/main/images/out_hist.png" width="35%" />
+  </p>
+  Visualisasi boxplot berguna untuk mendeteksi keberadaan outlier pada setiap fitur. Dari analisis data yang digunakan, tidak terdapat outlier yang teridentifikasi. Selanjutnya, pada histogram distribusi normal, fitur MCH, MCHC, dan MCV menunjukkan pola distribusi yang normal. Di sisi lain, fitur Hemoglobin menunjukkan kecenderungan sedikit miring ke arah kiri (left-skewed).
 
 
 ## Data Preparation
 Teknik yang digunakan pada notebook untuk data Data Preparation yaitu:
-1. **One-Hot Encoding**
+1. **One-Hot Encoding**\
   One-Hot Encoding adalah metode yang populer digunakan untuk mengonversi data kategorikal menjadi data numerik dengan format biner, yaitu 0 dan 1. Proses encoding sangat penting dalam machine learning karena sebagian besar algoritma bekerja lebih optimal dengan data numerik daripada kategorikal. Melalui encoding, data kategorikal diubah sehingga dapat diproses dengan baik oleh model machine learning. Dalam proyek ini, proses encoding dilakukan secara manual melalui fungsi khusus yang dikembangkan untuk mengonversi nilai-nilai kategorikal menjadi numerik. Hal ini memungkinkan karena saya sudah memahami dan mengetahui nilai-nilai dari fitur yang akan diencoding. Fitur yang memerlukan encoding dalam proyek ini adalah "Gender" dan "Result," yang dikonversi ke dalam bentuk numerik agar algoritma klasifikasi dapat bekerja lebih efektif.
-2. **Data Splitting**
+2. **Data Splitting**\
   Tahap ini bertujuan untuk membagi dataset menjadi dua bagian, yaitu data latih (*train*) dan data uji (*test*). Pembagian ini penting untuk memastikan bahwa model machine learning tidak hanya dilatih tetapi juga dievaluasi kinerjanya pada data yang belum pernah dilihat sebelumnya. Dalam proyek ini, dataset dibagi dengan proporsi 80% untuk data latih dan 20% untuk data uji. Dengan demikian, 427 data digunakan untuk melatih model, sementara 107 data sisanya digunakan untuk pengujian. Proses pembagian ini dilakukan menggunakan fungsi train_test_split() yang tersedia di library sklearn. Pemisahan data ini bertujuan untuk mengevaluasi akurasi model dan melihat bagaimana performanya pada data yang belum pernah digunakan selama pelatihan.
 
-  3. **Feature Scaling (Standarisasi)**
+  3. **Feature Scaling (Standarisasi)**\
   Feature scaling bertujuan untuk menormalisasi range dari setiap fitur data sehingga semua fitur berada pada skala yang sama. Jika proses scaling ini tidak dilakukan, model machine learning cenderung lebih terpengaruh oleh fitur dengan nilai yang lebih besar, dan fitur dengan nilai lebih kecil mungkin memiliki pengaruh yang lebih sedikit dalam hasil prediksi. Dalam proyek ini, metode yang digunakan adalah standarisasi, karena dataset memiliki distribusi data yang mendekati normal, dan standarisasi lebih cocok digunakan dalam kasus ini. Proses standarisasi dilakukan dengan memanfaatkan fungsi StandardScaler() dari sklearn. Fungsi ini bekerja dengan cara mengurangi nilai rata-rata (mean) dari setiap fitur dan membaginya dengan standar deviasi, sehingga setiap fitur memiliki rata-rata nol dan varian yang sama. Dengan cara ini, semua fitur memiliki skala yang seragam, memungkinkan model untuk melakukan prediksi yang lebih akurat dan seimbang.
 
-  4. **Handling Imbalanced Class**
+  4. **Handling Imbalanced Class**\
   Ketidakseimbangan kelas (*imbalanced class*) dalam dataset sering menjadi masalah besar, terutama dalam algoritma klasifikasi. Saat proporsi kelas tidak seimbang, model machine learning akan cenderung mengklasifikasikan data ke kelas yang dominan (*majority class*) daripada kelas yang lebih sedikit (*minority class*). Ini bisa menjadi risiko serius, terutama dalam bidang kesehatan, di mana kesalahan dalam prediksi dapat berakibat fatal. Dalam proyek ini, terdapat ketidakseimbangan kelas pada dataset, sehingga teknik **Synthetic Minority Over-sampling Technique (SMOTE)** digunakan untuk menangani masalah ini. SMOTE adalah metode oversampling yang mensintesis sampel baru dari kelas minoritas untuk menyeimbangkan distribusi data. Dengan cara ini, model mendapatkan distribusi data yang lebih seimbang, sehingga dapat mengurangi bias terhadap kelas mayoritas dan memberikan hasil prediksi yang lebih akurat dan adil.
-  <div style="display: flex; justify-content: center;">
-    <div style="margin: 10px;">
-        <img src="https://raw.githubusercontent.com/rrexzra36/anemia-predictive-analytics/refs/heads/main/images/smote_before.png" alt="Deskripsi Gambar 1" style="width: 300px; height: auto;">
-    </div>
-    <div style="margin: 10px;">
-        <img src="https://raw.githubusercontent.com/rrexzra36/anemia-predictive-analytics/refs/heads/main/images/smote_after.png" alt="Deskripsi Gambar 2" style="width: 300px; height: auto;">
-    </div>
-</div>
-
+  <p align="center">
+    <img src="https://raw.githubusercontent.com/rrexzra36/anemia-predictive-analytics/refs/heads/main/images/smote_before.png" alt="Deskripsi Gambar 1" style="width: 300px; height: auto;">
+    <img src="https://raw.githubusercontent.com/rrexzra36/anemia-predictive-analytics/refs/heads/main/images/smote_after.png" alt="Deskripsi Gambar 2" style="width: 300px; height: auto;">
+  </p>
 
 ## Modeling
 Pada proyek ini, algoritma machine learning yang diterapkan mencakup beberapa metode populer, yaitu `K-Nearest Neighbor`, `Support Vector Machine`, dan `Random Forest`. Setiap algoritma ini dipilih karena kemampuannya yang berbeda-beda dalam menangani masalah klasifikasi, sehingga diharapkan dapat memberikan hasil prediksi yang optimal. Masing-masing algoritma memiliki keunggulan tersendiri dalam menganalisis data dan menghasilkan model yang akurat untuk memprediksi kondisi anemia berdasarkan data yang tersedia.
   1. **Algoritma K-Nearest Neighbor (KNN)** adalah salah satu algoritma klasifikasi yang sederhana namun sangat populer digunakan dalam machine learning. KNN bekerja dengan menentukan class dari data baru berdasarkan sejumlah K data terdekat yang dijadikan acuan. Algoritma ini menggunakan jarak (similarity) sebagai dasar untuk membandingkan setiap data, di mana K tetangga terdekat dari data baru dipilih untuk menentukan class yang paling sesuai. Dalam proyek ini, proses pemodelan menggunakan KNN dilakukan dengan memanfaatkan modul KNeighborsClassifier() yang tersedia di library scikit-learn. Parameter yang digunakan adalah `n_neighbors = 10`, yang berarti model akan menggunakan 10 data terdekat sebagai acuan dalam menentukan class pada proses klasifikasi. 
   Untuk menghitung similarity, proyek ini menggunakan minkowski distance sebagai metrik jarak. Minkowski distance merupakan generalisasi dari beberapa jenis jarak lainnya, seperti Euclidean dan Manhattan distance. Perbedaan utama minkowski terletak pada adanya parameter p (pangkat) yang dapat diatur. Jika p=1, maka jarak yang dihitung adalah Manhattan distance, sedangkan jika p=2, maka jaraknya adalah Euclidean distance. Minkowski menghitung jarak antara dua vektor data, dan variasi nilai p ini memberikan fleksibilitas lebih dalam menentukan cara pengukuran jarak antar data pada klasifikasi KNN.
-  Untuk menghitung similarity, proyek ini menggunakan *minkowski distance* sebagai metrik jarak. Minkowski distance merupakan generalisasi dari beberapa jenis jarak lainnya, seperti Euclidean dan Manhattan distance. Perbedaan utama minkowski terletak pada adanya parameter p (pangkat) yang dapat diatur. Jika p=1, maka jarak yang dihitung adalah Manhattan distance, sedangkan jika p=2, maka jaraknya adalah Euclidean distance. Minkowski menghitung jarak antara dua vektor data, dan variasi nilai p ini memberikan fleksibilitas lebih dalam menentukan cara pengukuran jarak antar data pada klasifikasi KNN.
   <table border="1">
   <tr>
     <th>Kelebihan KNN</th>

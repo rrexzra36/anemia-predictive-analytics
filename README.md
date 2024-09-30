@@ -70,10 +70,19 @@ Dataset yang digunakan dalam proyek machine learning ini merupakan dataset anemi
 
   3. **Multivariate Analysis**
 <p align="center">
-    <img src="https://raw.githubusercontent.com/rrexzra36/anemia-predictive-analytics/refs/heads/main/images/uni_analysis.png" width="75%" />
+    <img src="https://raw.githubusercontent.com/rrexzra36/anemia-predictive-analytics/refs/heads/main/images/multi_analysis.png" width="75%" />
 </p>
+  Scatter plot di antara variabel-variabel ini memperlihatkan pola-pola hubungan yang tersebar, meskipun untuk beberapa variabel (seperti Hemoglobin dan MCV), terdapat pemisahan yang lebih jelas antara individu yang anemik dan tidak anemik. Pairplot ini membantu mengidentifikasi pola keterkaitan antar variabel serta bagaimana hasil tes anemia mempengaruhi distribusi variabel-variabel tersebut.
   
   4. **Outlier & Distribution Analysis**
+  <div style="display: flex; justify-content: center;">
+    <div style="margin: 10px;">
+        <img src="https://raw.githubusercontent.com/rrexzra36/anemia-predictive-analytics/refs/heads/main/images/smote_before.png" alt="Deskripsi Gambar 1" style="width: 300px; height: auto;">
+    </div>
+    <div style="margin: 10px;">
+        <img src="https://raw.githubusercontent.com/rrexzra36/anemia-predictive-analytics/refs/heads/main/images/smote_after.png" alt="Deskripsi Gambar 2" style="width: 300px; height: auto;">
+    </div>
+
 
 ## Data Preparation
 Teknik yang digunakan pada notebook untuk data Data Preparation yaitu:

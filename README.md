@@ -223,21 +223,24 @@ dengan TP menunjukkan true positive. Nilai ideal untuk recall adalah 1, yang men
 **Penjelasan Hasil Evaluasi tiap Model:**
 1. **K-Nearest Neighbor (KNN)**
 <p align="center">
-  <img src="https://raw.githubusercontent.com/rrexzra36/anemia-predictive-analytics/refs/heads/main/images/evaluation.png" />
+  <img src="https://raw.githubusercontent.com/rrexzra36/anemia-predictive-analytics/refs/heads/main/images/eval_knn.png" />
 </p>
 Berdasarkan hasil evaluasi, precision untuk kelas 0 mencapai 1.00, menunjukkan bahwa setiap prediksi kelas 0 sepenuhnya benar. Sementara itu, precision untuk kelas 1 adalah 0.92, menandakan adanya beberapa prediksi yang salah pada kelas ini. Recall model untuk kelas 0 adalah 0.93, yang berarti model mampu mendeteksi 93.4% dari semua contoh kelas 0, sedangkan recall untuk kelas 1 mencapai 1.00, yang menunjukkan bahwa model mendeteksi semua contoh kelas 1 dengan sempurna. Nilai F1-score, yang merupakan rata-rata harmonis antara precision dan recall, tercatat sebesar 0.97 untuk kelas 0 dan 0.96 untuk kelas 1, menandakan keseimbangan performa yang baik dalam mendeteksi kedua kelas. Secara keseluruhan, akurasi model tercatat sebesar 96.26%, yang mengindikasikan bahwa sebagian besar prediksi model sudah benar. Metrik macro average menunjukkan rata-rata precision, recall, dan F1-score sebesar 0.96, sementara weighted average yang mempertimbangkan distribusi data memberikan hasil serupa. Dengan demikian, model KNN ini memiliki performa yang baik dan cukup konsisten dalam mengklasifikasikan kedua kelas dengan distribusi yang seimbang.
 
 2. **Support Vector Machine (SVM)**
 <p align="center">
-  <img src="https://raw.githubusercontent.com/rrexzra36/anemia-predictive-analytics/refs/heads/main/images/evaluation.png" />
+  <img src="https://raw.githubusercontent.com/rrexzra36/anemia-predictive-analytics/refs/heads/main/images/eval_rf.png" />
 </p>
 Berdasarkan hasil evaluasi, precision untuk kelas 0 mencapai 1.00, yang menunjukkan bahwa setiap prediksi untuk kelas ini benar. Precision untuk kelas 1 tercatat sebesar 0.92, menandakan adanya beberapa prediksi yang tidak tepat untuk kelas ini. Dari segi recall, model mampu mendeteksi 93.4% dari semua contoh kelas 0 dengan nilai 0.93, sedangkan recall untuk kelas 1 mencapai 1.00, yang berarti semua contoh kelas 1 terdeteksi dengan sempurna. F1-score, yang merepresentasikan keseimbangan antara precision dan recall, tercatat sebesar 0.97 untuk kelas 0 dan 0.96 untuk kelas 1, menunjukkan kinerja yang kuat di kedua kelas. Akurasi model secara keseluruhan tercatat sebesar 96.26%, yang menunjukkan bahwa sebagian besar prediksi model sudah tepat. Rata-rata metrik (macro average) precision, recall, dan F1-score di antara kedua kelas masing-masing sebesar 0.96, dan weighted average yang mempertimbangkan distribusi data menunjukkan hasil yang serupa. Secara keseluruhan, model SVM ini memiliki performa yang sangat baik dan seimbang dalam
 
 3. **Random Forest (RF)**
 <p align="center">
-  <img src="https://raw.githubusercontent.com/rrexzra36/anemia-predictive-analytics/refs/heads/main/images/evaluation.png" />
+  <img src="https://raw.githubusercontent.com/rrexzra36/anemia-predictive-analytics/refs/heads/main/images/eval_rf.png" />
 </p>
 Hasil evaluasi model Random Forest menunjukkan performa yang sangat sempurna dalam mengklasifikasikan dua kelas (kelas 0 dan kelas 1). Precision, recall, dan F1-score untuk kedua kelas, yaitu kelas 0 dan kelas 1, semuanya tercatat sebesar 1.00. Ini berarti bahwa model tidak membuat kesalahan dalam prediksi, baik dalam hal ketepatan (precision), kemampuan mendeteksi semua contoh yang benar (recall), maupun keseimbangan antara precision dan recall (F1-score). Akurasi model juga mencapai 100%, yang menunjukkan bahwa semua prediksi model untuk data uji adalah benar. Rata-rata metrik untuk macro average dan weighted average juga bernilai 1.00, yang mengindikasikan bahwa model bekerja secara konsisten dan seimbang tanpa adanya bias terhadap kelas tertentu. Secara keseluruhan, model Random Forest ini menunjukkan performa yang sangat optimal dalam klasifikasi, dengan semua metrik evaluasi berada di tingkat maksimum.
 
 **Kesimpulan:**
-Dalam proyek machine learning ini, model yang dianggap paling efektif berdasarkan algoritma yang digunakan adalah **Random Forest**, yang menghasilkan nilai recall tertinggi di antara ketiga algoritma yang diterapkan, yaitu **1.0**.
+- Random Forest merupakan model paling efektif dalam proyek ini, dengan nilai recall tertinggi di antara ketiga algoritma yang diterapkan, yaitu 1.0.
+- Penelitian berhasil menjawab problem statement dengan menerapkan algoritma machine learning seperti KNN, SVM, dan Random Forest untuk memprediksi anemia menggunakan data sel darah merah. Proses pengembangan model meliputi preprocessing data, exploratory data analysis (EDA), dan evaluasi kinerja model, yang berhasil menjawab tujuan prediksi anemia.
+- Penelitian ini mencapai seluruh tujuan, yaitu menjelaskan penerapan algoritma machine learning, mengembangkan model prediksi anemia, dan mengevaluasi kinerjanya. Algoritma yang digunakan dievaluasi menggunakan metrik seperti precision, recall, F1-score, dan akurasi, yang menunjukkan kinerja model yang baik.
+- Solusi yang diterapkan, termasuk preprocessing data, EDA, pemilihan algoritma (KNN, SVM, Random Forest), serta hyperparameter tuning, memberikan dampak signifikan terhadap performa model. Evaluasi menunjukkan bahwa model mampu memprediksi anemia dengan akurasi tinggi, mendukung deteksi dini dan pencegahan anemia secara efektif.

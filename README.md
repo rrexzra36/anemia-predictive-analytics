@@ -77,10 +77,10 @@ Dataset yang digunakan dalam proyek machine learning ini merupakan dataset anemi
   4. **Outlier & Distribution Analysis**
   <div style="display: flex; justify-content: center;">
     <div style="margin: 10px;">
-        <img src="https://raw.githubusercontent.com/rrexzra36/anemia-predictive-analytics/refs/heads/main/images/smote_before.png" alt="Deskripsi Gambar 1" style="width: 300px; height: auto;">
+        <img src="https://raw.githubusercontent.com/rrexzra36/anemia-predictive-analytics/refs/heads/main/images/out_boxplot.png" alt="Deskripsi Gambar 1" style="width: 300px; height: auto;">
     </div>
     <div style="margin: 10px;">
-        <img src="https://raw.githubusercontent.com/rrexzra36/anemia-predictive-analytics/refs/heads/main/images/smote_after.png" alt="Deskripsi Gambar 2" style="width: 300px; height: auto;">
+        <img src="https://raw.githubusercontent.com/rrexzra36/anemia-predictive-analytics/refs/heads/main/images/out_hist.png" alt="Deskripsi Gambar 2" style="width: 300px; height: auto;">
     </div>
 
 

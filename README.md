@@ -22,8 +22,6 @@ Dari rumusan masalah di atas, penelitian ini bertujuan untuk:
 2. Menjelaskan proses pengembangan model machine learning yang mampu memprediksi anemia pada manusia.
 3. Mengevaluasi kinerja model machine learning dalam memprediksi anemia dengan menggunakan data sel darah merah.
 
-Semua poin di atas harus diuraikan dengan jelas. Anda bebas menuliskan berapa pernyataan masalah dan juga goals yang diinginkan.
-
 ### Solution Statements
 Untuk mencapai tujuan yang ditetapkan, penelitian ini mengadopsi beberapa langkah berikut:
 

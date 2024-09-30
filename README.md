@@ -65,11 +65,68 @@ Teknik yang digunakan pada notebook untuk data Data Preparation yaitu:
 
 ## Modeling
 Pada proyek ini, algoritma machine learning yang diterapkan mencakup beberapa metode populer, yaitu `K-Nearest Neighbor`, `Support Vector Machine`, dan `Random Forest`. Setiap algoritma ini dipilih karena kemampuannya yang berbeda-beda dalam menangani masalah klasifikasi, sehingga diharapkan dapat memberikan hasil prediksi yang optimal. Masing-masing algoritma memiliki keunggulan tersendiri dalam menganalisis data dan menghasilkan model yang akurat untuk memprediksi kondisi anemia berdasarkan data yang tersedia.
+  1. **Algoritma K-Nearest Neighbor (KNN)** adalah salah satu algoritma klasifikasi yang sederhana namun sangat populer digunakan dalam machine learning. KNN bekerja dengan menentukan class dari data baru berdasarkan sejumlah K data terdekat yang dijadikan acuan. Algoritma ini menggunakan jarak (similarity) sebagai dasar untuk membandingkan setiap data, di mana K tetangga terdekat dari data baru dipilih untuk menentukan class yang paling sesuai. Dalam proyek ini, proses pemodelan menggunakan KNN dilakukan dengan memanfaatkan modul KNeighborsClassifier() yang tersedia di library scikit-learn. Parameter yang digunakan adalah `n_neighbors = 10`, yang berarti model akan menggunakan 10 data terdekat sebagai acuan dalam menentukan class pada proses klasifikasi. 
+  Untuk menghitung similarity, proyek ini menggunakan minkowski distance sebagai metrik jarak. Minkowski distance merupakan generalisasi dari beberapa jenis jarak lainnya, seperti Euclidean dan Manhattan distance. Perbedaan utama minkowski terletak pada adanya parameter p (pangkat) yang dapat diatur. Jika p=1, maka jarak yang dihitung adalah Manhattan distance, sedangkan jika p=2, maka jaraknya adalah Euclidean distance. Minkowski menghitung jarak antara dua vektor data, dan variasi nilai p ini memberikan fleksibilitas lebih dalam menentukan cara pengukuran jarak antar data pada klasifikasi KNN.
+  Untuk menghitung similarity, proyek ini menggunakan *minkowski distance* sebagai metrik jarak. Minkowski distance merupakan generalisasi dari beberapa jenis jarak lainnya, seperti Euclidean dan Manhattan distance. Perbedaan utama minkowski terletak pada adanya parameter p (pangkat) yang dapat diatur. Jika p=1, maka jarak yang dihitung adalah Manhattan distance, sedangkan jika p=2, maka jaraknya adalah Euclidean distance. Minkowski menghitung jarak antara dua vektor data, dan variasi nilai p ini memberikan fleksibilitas lebih dalam menentukan cara pengukuran jarak antar data pada klasifikasi KNN.
+  <table border="1">
+  <tr>
+    <th>Kelebihan KNN</th>
+    <th>Kelemahan KNN</th>
+  </tr>
+  <tr>
+    <td>Mudah diimplementasikan dan dipahami karena konsepnya sederhana.</td>
+    <td>Sangat bergantung pada ukuran K yang dipilih, sehingga pemilihan K yang salah dapat mempengaruhi hasil.</td>
+  </tr>
+  <tr>
+    <td>Tidak memerlukan pelatihan model secara eksplisit, karena bekerja berdasarkan instance-based learning.</td>
+    <td>Tidak efisien untuk dataset besar, karena harus menghitung jarak setiap data dalam dataset secara berulang.</td>
+  </tr>
+  <tr>
+    <td>Fleksibel dalam penggunaan metrik jarak yang berbeda seperti Euclidean, Manhattan, dan Minkowski.</td>
+    <td>Sensitif terhadap data yang tidak relevan atau fitur yang memiliki skala berbeda tanpa normalisasi.</td>
+  </tr>
+  <tr>
+    <td>Dapat digunakan baik untuk klasifikasi maupun regresi.</td>
+    <td>Rentan terhadap outlier karena tetangga terdekat bisa terpengaruh oleh data yang tidak representatif.</td>
+  </tr>
+  <tr>
+    <td>Kinerja bagus pada dataset dengan distribusi yang jelas atau data yang terpisah dengan baik.</td>
+    <td>Sulit menangani data yang tidak seimbang karena model cenderung lebih memprioritaskan majority class.</td>
+  </tr>
+</table>
 
-**Rubrik/Kriteria Tambahan (Opsional)**: 
-- Menjelaskan kelebihan dan kekurangan dari setiap algoritma yang digunakan.
-- Jika menggunakan satu algoritma pada solution statement, lakukan proses improvement terhadap model dengan hyperparameter tuning. **Jelaskan proses improvement yang dilakukan**.
-- Jika menggunakan dua atau lebih algoritma pada solution statement, maka pilih model terbaik sebagai solusi. **Jelaskan mengapa memilih model tersebut sebagai model terbaik**.
+  2. **Algoritma Support Vector Machine (SVM)**, berfungsi untuk menemukan *hyperplane* terbaik dengan cara memaksimalkan jarak antara kelas-kelas. *Hyperplane* adalah sebuah fungsi yang berfungsi sebagai pemisah antara kelas. Dalam ruang dua dimensi, fungsi yang digunakan untuk klasifikasi antar kelas disebut sebagai garis, sementara fungsi yang digunakan untuk klasifikasi dalam tiga dimensi disebut sebagai bidang. Demikian pula, fungsi yang digunakan untuk klasifikasi dalam ruang berdimensi lebih tinggi disebut *hyperplane*.
+  Pada tahap pemodelan, algoritma Support Vector Machine (SVM) yang digunakan menerapkan metode kernel dan menerima semua vektor input yang disediakan dalam data pelatihan dengan menggunakan parameter RBF sebagai teknik kernel-nya. Kernel ini dikenal memiliki kinerja yang baik dan menghasilkan nilai kesalahan yang rendah pada hasil pelatihan. Fungsi kernel RBF dinyatakan sebagai berikut: \( K(x, x_i) = \exp(-\gamma \cdot \sum{(x - x_i^2)}) \).
+  <table border="1">
+  <tr>
+    <th>Kelebihan SVM</th>
+    <th>Kekurangan SVM</th>
+  </tr>
+  <tr>
+    <td>Mampu menangani data dengan dimensi yang tinggi dan efektif dalam ruang fitur yang besar.</td>
+    <td>Waktu pelatihan bisa sangat lama, terutama pada dataset yang besar dan kompleks.</td>
+  </tr>
+  <tr>
+    <td>Memberikan hasil klasifikasi yang baik meskipun ada noise dalam data.</td>
+    <td>Kurang efektif pada dataset yang sangat besar, karena dapat mengalami masalah dalam hal komputasi.</td>
+  </tr>
+  <tr>
+    <td>Dapat digunakan untuk klasifikasi dan regresi dengan fleksibilitas tinggi melalui penggunaan berbagai jenis kernel.</td>
+    <td>Memilih parameter kernel dan pengaturan hyperparameter yang tepat dapat menjadi sulit dan mempengaruhi hasil.</td>
+  </tr>
+  <tr>
+    <td>Menawarkan kontrol yang baik terhadap margin, sehingga lebih tahan terhadap overfitting pada data pelatihan.</td>
+    <td>Sensitif terhadap pemilihan kernel, yang dapat berdampak signifikan pada performa model.</td>
+  </tr>
+  <tr>
+    <td>SVM sangat efektif dalam situasi di mana jumlah dimensi fitur lebih besar daripada jumlah sampel.</td>
+    <td>Interpretasi model lebih sulit dibandingkan dengan algoritma yang lebih sederhana seperti regresi logistik.</td>
+  </tr>
+</table>
+
+  3. **Algoritma Random Forest**,  memanfaatkan kombinasi beberapa pohon keputusan (*decision tree*) untuk menghasilkan prediksi yang lebih akurat. Prinsip dasar dari Random Forest adalah bahwa beberapa pohon keputusan yang tidak saling berkorelasi akan berfungsi lebih baik sebagai kelompok dibandingkan jika mereka beroperasi secara individual. Saat Random Forest digunakan sebagai pengklasifikasi, setiap pohon keputusan memberikan satu suara, dan setiap pohon keputusan dapat menghasilkan jawaban yang sama atau berbeda. Sebagai contoh, pohon keputusan A, B, E, dan F mungkin memprediksi hasil 1, sementara pohon keputusan C dan D memprediksi hasil 0. Dengan banyaknya kemungkinan jawaban dari pohon keputusan dan risiko bias yang tinggi, Random Forest mengambil prediksi dari sejumlah pohon keputusan berdasarkan suara mayoritas, sehingga menghasilkan prediksi yang lebih akurat.
+  Penerapan algoritma Random Forest akan dilakukan dengan menggunakan modul `RandomForestClassifier()` yang tersedia di library scikit-learn. Parameter n_estimators digunakan untuk menetapkan jumlah pohon (*tree*), di mana proyek ini menggunakan 100 pohon. Setelah menentukan parameter model, langkah selanjutnya adalah membangun model dan melakukan prediksi menggunakan data pengujian. Hasil dari pengujian tersebut akan dievaluasi menggunakan metrik akurasi.
+  
 
 ## Evaluation
 Pada bagian ini anda perlu menyebutkan metrik evaluasi yang digunakan. Lalu anda perlu menjelaskan hasil proyek berdasarkan metrik evaluasi yang digunakan.

@@ -41,28 +41,50 @@ Untuk mencapai tujuan yang ditetapkan, penelitian ini mengadopsi beberapa langka
 3. Melakukan evaluasi kinerja model menggunakan berbagai metrik evaluasi untuk menilai performa dari model yang dikembangkan.
 
 ## Data Understanding
-<img src="" alt="Deskripsi Gambar"/>
+<p align="center">
+  <img src="https://raw.githubusercontent.com/rrexzra36/anemia-predictive-analytics/refs/heads/main/images/dataset.png" />
+</p>
+
 Dataset yang digunakan dalam proyek machine learning ini merupakan dataset anemia yang terdiri dari 1421 entri data atau record. Dataset ini bersifat open-source, yang berarti tersedia secara bebas untuk digunakan oleh publik, dan telah dipublikasikan oleh Biswa Ranjan Rao melalui platform Kaggle dengan judul [Anemia Dataset](https://www.kaggle.com/datasets/biswaranjanrao/anemia-dataset). Topik utama yang diusung oleh dataset ini adalah kesehatan, khususnya terkait kondisi anemia. Format file dataset tersebut adalah CSV (comma-separated values), yaitu format yang umum digunakan untuk penyimpanan data tabular karena memungkinkan penyusunan data dalam bentuk baris dan kolom. Dengan ukuran file sebesar 34.63 kB, dataset ini relatif ringan dan mudah diakses. Informasi yang terkandung di dalamnya mencakup berbagai fitur yang relevan untuk analisis prediktif anemia, sehingga cocok untuk digunakan dalam pengembangan dan pengujian model machine learning. Penggunaan dataset ini memungkinkan proyek ini untuk memanfaatkan data nyata dalam upaya memprediksi kondisi anemia pada manusia dengan lebih akurat dan efisien.
 
-### Variabel-variabel pada Restaurant UCI dataset adalah sebagai berikut:
-- Gender : jenis kelamin responden (0 = Laki-laki, 1 = Perempuan).
-- MCH : *Mean Corpuscular Hemoglobin*, rata-rata massa hemoglobin per sel darah merah dalam sampel darah.
-- MCHC : *Mean Corpuscular Hemoglobin Concentration*, konsentrasi rata-rata hemoglobin dalam satu sel darah merah.
-- MCV : *Mean Corpuscular Volume*, perhitungan ukuran rata-rata sel darah merah.
-- Results : Status penyakit anemia (0 = Negatif Anemia, 1 = Positif Anemia)
+**Variabel-variabel pada Restaurant UCI dataset adalah sebagai berikut:**
+- **Gender** : jenis kelamin responden (0 = Laki-laki, 1 = Perempuan).
+- **MCH** : *Mean Corpuscular Hemoglobin*, rata-rata massa hemoglobin per sel darah merah dalam sampel darah.
+- **MCHC** : *Mean Corpuscular Hemoglobin Concentration*, konsentrasi rata-rata hemoglobin dalam satu sel darah merah.
+- **MCV** : *Mean Corpuscular Volume*, perhitungan ukuran rata-rata sel darah merah.
+- **Results** : Status penyakit anemia (0 = Negatif Anemia, 1 = Positif Anemia)
+
+**Hasil Visualisasi dan Analisis Data:**
+  1. **Univariate Analysis** 
+<p align="center">
+    <img src="https://raw.githubusercontent.com/rrexzra36/anemia-predictive-analytics/refs/heads/main/images/evaluation.png" />
+</p>
+  
+  2. **Bivariate Analysis**
+  3. **Multivariate Analysis**
+  4. **Outlier & Distribution Analysis**
 
 ## Data Preparation
 Teknik yang digunakan pada notebook untuk data Data Preparation yaitu:
-1. One-Hot Encoding
+1. **One-Hot Encoding**
   One-Hot Encoding adalah metode yang populer digunakan untuk mengonversi data kategorikal menjadi data numerik dengan format biner, yaitu 0 dan 1. Proses encoding sangat penting dalam machine learning karena sebagian besar algoritma bekerja lebih optimal dengan data numerik daripada kategorikal. Melalui encoding, data kategorikal diubah sehingga dapat diproses dengan baik oleh model machine learning. Dalam proyek ini, proses encoding dilakukan secara manual melalui fungsi khusus yang dikembangkan untuk mengonversi nilai-nilai kategorikal menjadi numerik. Hal ini memungkinkan karena saya sudah memahami dan mengetahui nilai-nilai dari fitur yang akan diencoding. Fitur yang memerlukan encoding dalam proyek ini adalah "Gender" dan "Result," yang dikonversi ke dalam bentuk numerik agar algoritma klasifikasi dapat bekerja lebih efektif.
-2. Data Splitting
+2. **Data Splitting**
   Tahap ini bertujuan untuk membagi dataset menjadi dua bagian, yaitu data latih (*train*) dan data uji (*test*). Pembagian ini penting untuk memastikan bahwa model machine learning tidak hanya dilatih tetapi juga dievaluasi kinerjanya pada data yang belum pernah dilihat sebelumnya. Dalam proyek ini, dataset dibagi dengan proporsi 80% untuk data latih dan 20% untuk data uji. Dengan demikian, 427 data digunakan untuk melatih model, sementara 107 data sisanya digunakan untuk pengujian. Proses pembagian ini dilakukan menggunakan fungsi train_test_split() yang tersedia di library sklearn. Pemisahan data ini bertujuan untuk mengevaluasi akurasi model dan melihat bagaimana performanya pada data yang belum pernah digunakan selama pelatihan.
 
-  3. Feature Scaling (Standarisasi)
+  3. **Feature Scaling (Standarisasi)**
   Feature scaling bertujuan untuk menormalisasi range dari setiap fitur data sehingga semua fitur berada pada skala yang sama. Jika proses scaling ini tidak dilakukan, model machine learning cenderung lebih terpengaruh oleh fitur dengan nilai yang lebih besar, dan fitur dengan nilai lebih kecil mungkin memiliki pengaruh yang lebih sedikit dalam hasil prediksi. Dalam proyek ini, metode yang digunakan adalah standarisasi, karena dataset memiliki distribusi data yang mendekati normal, dan standarisasi lebih cocok digunakan dalam kasus ini. Proses standarisasi dilakukan dengan memanfaatkan fungsi StandardScaler() dari sklearn. Fungsi ini bekerja dengan cara mengurangi nilai rata-rata (mean) dari setiap fitur dan membaginya dengan standar deviasi, sehingga setiap fitur memiliki rata-rata nol dan varian yang sama. Dengan cara ini, semua fitur memiliki skala yang seragam, memungkinkan model untuk melakukan prediksi yang lebih akurat dan seimbang.
 
-  4. Handling Imbalanced Class
-  Ketidakseimbangan kelas (*imbalanced class*) dalam dataset sering menjadi masalah besar, terutama dalam algoritma klasifikasi. Saat proporsi kelas tidak seimbang, model machine learning akan cenderung mengklasifikasikan data ke kelas yang dominan (*majority class*) daripada kelas yang lebih sedikit (*minority class*). Ini bisa menjadi risiko serius, terutama dalam bidang kesehatan, di mana kesalahan dalam prediksi dapat berakibat fatal. Dalam proyek ini, terdapat ketidakseimbangan kelas pada dataset, sehingga teknik **Synthetic Minority Over-sampling Technique** (SMOTE) digunakan untuk menangani masalah ini. SMOTE adalah metode oversampling yang mensintesis sampel baru dari kelas minoritas untuk menyeimbangkan distribusi data. Dengan cara ini, model mendapatkan distribusi data yang lebih seimbang, sehingga dapat mengurangi bias terhadap kelas mayoritas dan memberikan hasil prediksi yang lebih akurat dan adil.
+  4. **Handling Imbalanced Class**
+  Ketidakseimbangan kelas (*imbalanced class*) dalam dataset sering menjadi masalah besar, terutama dalam algoritma klasifikasi. Saat proporsi kelas tidak seimbang, model machine learning akan cenderung mengklasifikasikan data ke kelas yang dominan (*majority class*) daripada kelas yang lebih sedikit (*minority class*). Ini bisa menjadi risiko serius, terutama dalam bidang kesehatan, di mana kesalahan dalam prediksi dapat berakibat fatal. Dalam proyek ini, terdapat ketidakseimbangan kelas pada dataset, sehingga teknik **Synthetic Minority Over-sampling Technique (SMOTE)** digunakan untuk menangani masalah ini. SMOTE adalah metode oversampling yang mensintesis sampel baru dari kelas minoritas untuk menyeimbangkan distribusi data. Dengan cara ini, model mendapatkan distribusi data yang lebih seimbang, sehingga dapat mengurangi bias terhadap kelas mayoritas dan memberikan hasil prediksi yang lebih akurat dan adil.
+  <div style="display: flex; justify-content: center;">
+    <div style="margin: 10px;">
+        <img src="https://raw.githubusercontent.com/rrexzra36/anemia-predictive-analytics/refs/heads/main/images/smote_before.png" alt="Deskripsi Gambar 1" style="width: 300px; height: auto;">
+    </div>
+    <div style="margin: 10px;">
+        <img src="https://raw.githubusercontent.com/rrexzra36/anemia-predictive-analytics/refs/heads/main/images/smote_after.png" alt="Deskripsi Gambar 2" style="width: 300px; height: auto;">
+    </div>
+</div>
+
 
 ## Modeling
 Pada proyek ini, algoritma machine learning yang diterapkan mencakup beberapa metode populer, yaitu `K-Nearest Neighbor`, `Support Vector Machine`, dan `Random Forest`. Setiap algoritma ini dipilih karena kemampuannya yang berbeda-beda dalam menangani masalah klasifikasi, sehingga diharapkan dapat memberikan hasil prediksi yang optimal. Masing-masing algoritma memiliki keunggulan tersendiri dalam menganalisis data dan menghasilkan model yang akurat untuk memprediksi kondisi anemia berdasarkan data yang tersedia.
@@ -97,7 +119,7 @@ Pada proyek ini, algoritma machine learning yang diterapkan mencakup beberapa me
 </table>
 
   2. **Algoritma Support Vector Machine (SVM)**, berfungsi untuk menemukan *hyperplane* terbaik dengan cara memaksimalkan jarak antara kelas-kelas. *Hyperplane* adalah sebuah fungsi yang berfungsi sebagai pemisah antara kelas. Dalam ruang dua dimensi, fungsi yang digunakan untuk klasifikasi antar kelas disebut sebagai garis, sementara fungsi yang digunakan untuk klasifikasi dalam tiga dimensi disebut sebagai bidang. Demikian pula, fungsi yang digunakan untuk klasifikasi dalam ruang berdimensi lebih tinggi disebut *hyperplane*.
-  Pada tahap pemodelan, algoritma Support Vector Machine (SVM) yang digunakan menerapkan metode kernel dan menerima semua vektor input yang disediakan dalam data pelatihan dengan menggunakan parameter RBF sebagai teknik kernel-nya. Kernel ini dikenal memiliki kinerja yang baik dan menghasilkan nilai kesalahan yang rendah pada hasil pelatihan. Fungsi kernel RBF dinyatakan sebagai berikut: \( K(x, x_i) = \exp(-\gamma \cdot \sum{(x - x_i^2)}) \).
+  Pada tahap pemodelan, algoritma Support Vector Machine (SVM) yang digunakan menerapkan metode kernel dan menerima semua vektor input yang disediakan dalam data pelatihan dengan menggunakan parameter RBF sebagai teknik kernel-nya. Kernel ini dikenal memiliki kinerja yang baik dan menghasilkan nilai kesalahan yang rendah pada hasil pelatihan. Fungsi kernel RBF dinyatakan sebagai berikut: K(x, x_i) = exp(-γ * Σ(x - x_i²))
   <table border="1">
   <tr>
     <th>Kelebihan SVM</th>
@@ -155,44 +177,35 @@ Pada proyek ini, algoritma machine learning yang diterapkan mencakup beberapa me
 </table>
 
 **Kesimpulan Model:**
+
 Gambar dibawah ini menunjukkan `confusion matrix` dari tiga model klasifikasi, yaitu K-Nearest Neighbors (KNN), Support Vector Machine (SVM), dan Random Forest (RF). Matriks ini digunakan untuk mengevaluasi kinerja masing-masing model dengan membandingkan hasil prediksi terhadap nilai sebenarnya.
 Model KNN menghasilkan 57 negatif benar (TN) dan 44 positif benar (TP), serta mencatat 4 positif salah (FP) dan 2 negatif salah (FN). Sementara itu, model SVM menunjukkan hasil yang cukup baik dengan 57 TN, 46 TP, dan tidak ada FN, meskipun terdapat 4 FP. Di sisi lain, model RF menunjukkan kinerja terbaik dengan 61 TN dan 46 TP, tanpa adanya FP maupun FN. Secara keseluruhan, semua model menunjukkan performa yang baik, namun **Random Forest menunjukkan akurasi tertinggi di antara ketiga model** tersebut.
 
 <img src="https://raw.githubusercontent.com/rrexzra36/anemia-predictive-analytics/refs/heads/main/images/conf_matrix.png" alt="Confision Matrix"/>
 
-
-
-
 ## Evaluation
-Berikut adalah penjelasan mengenai metrik evaluasi yang digunakan, serta analisis hasil proyek berdasarkan 4 metrik yaitu yaitu **akurasi, precision, recall, dan F1 score**:
+Berikut adalah penjelasan mengenai metrik evaluasi yang digunakan, serta analisis hasil proyek berdasarkan 4 metrik yaitu **akurasi, precision, recall, dan F1 score**:
+
 1. **Akurasi (Accuracy)** merupakan rasio jumlah observasi yang diklasifikasikan dengan benar terhadap total observasi. Rumusnya adalah:
-   \[
-   \text{Akurasi} = \frac{\text{True Positives} + \text{True Negatives}}{\text{Total Observasi}}
-   \]
+   - Akurasi = (True Positives + True Negatives) / Total Observasi
    Akurasi dapat menyesatkan dalam dataset yang tidak seimbang, sehingga sering dilengkapi dengan presisi dan recall.
-  <br>
+   <br>
+
 2. **Presisi (Precision)** adalah rasio antara jumlah prediksi positif yang benar dengan total prediksi positif. Rumusnya adalah:
-   \[
-   \text{Presisi} = \frac{\text{True Positives}}{\text{True Positives} + \text{False Positives}}
-   \]
+   - Presisi = True Positives / (True Positives + False Positives)
    Presisi penting dalam konteks di mana biaya dari false positives (prediksi positif yang salah) tinggi.
    <br>
-3.  **Recall** digunakan untuk mengukur kemampuan model untuk menemukan semua kasus relevan (yaitu, true positives). Rumusnya adalah:
-   \[
-   \text{Recall} = \frac{\text{True Positives}}{\text{True Positives} + \text{False Negatives}}
-   \]
+
+3. **Recall** digunakan untuk mengukur kemampuan model untuk menemukan semua kasus relevan (yaitu, true positives). Rumusnya adalah:
+   - Recall = True Positives / (True Positives + False Negatives)
    Recall sangat penting dalam situasi di mana kehilangan kasus positif (false negative) dapat berakibat serius.
-  <br>
+   <br>
+
 4. **Skor F1 (F1 Score)** adalah rata-rata harmonis antara presisi dan recall, memberikan keseimbangan antara kedua metrik tersebut. Rumusnya adalah:
-   \[
-   \text{Skor F1} = 2 \cdot \frac{\text{Presisi} \cdot \text{Recall}}{\text{Presisi} + \text{Recall}}
-   \]
+   - Skor F1 = 2 * (Presisi * Recall) / (Presisi + Recall)
    Skor F1 berguna ketika Anda membutuhkan satu metrik untuk menilai kinerja, terutama pada kelas yang tidak seimbang.
 
-Dalam hal ini, metrik evaluasi yang dipilih untuk model machine learning ini adalah **recall**, yang sangat relevan untuk deteksi penyakit. Recall akan mengukur seberapa banyak *actual positive* yang dapat diidentifikasi oleh model. Ketika seorang pasien yang menderita anemia (*actual positive*) menjalani tes dan diprediksi tidak menderita anemia (*predicted negative*), biaya yang timbul akibat *false negative* bisa sangat tinggi jika penyakit tersebut tidak segera ditangani. Ini menekankan pentingnya memiliki model dengan nilai recall yang tinggi agar tidak salah dalam memprediksi pasien yang sebenarnya menderita anemia. Rumus recall adalah: 
-\[
-   \text{Recall} = \frac{\text{True Positives}}{\text{True Positives} + \text{False Negatives}}
-   \] 
+Dalam hal ini, metrik evaluasi yang dipilih untuk model machine learning ini adalah **recall**, yang sangat relevan untuk deteksi penyakit. Recall akan mengukur seberapa banyak *actual positive* yang dapat diidentifikasi oleh model. Ketika seorang pasien yang menderita anemia (*actual positive*) menjalani tes dan diprediksi tidak menderita anemia (*predicted negative*), biaya yang timbul akibat *false negative* bisa sangat tinggi jika penyakit tersebut tidak segera ditangani. Ini menekankan pentingnya memiliki model dengan nilai recall yang tinggi agar tidak salah dalam memprediksi pasien yang sebenarnya menderita anemia.
 dengan TP menunjukkan true positive. Nilai ideal untuk recall adalah 1, yang menunjukkan tidak adanya *false negative* (FN = 0). Ketika nilai FN meningkat, nilai penyebut akan lebih besar dibandingkan dengan pembilang, sehingga menyebabkan penurunan nilai recall.
 
 **Keterangan:**
@@ -200,5 +213,9 @@ dengan TP menunjukkan true positive. Nilai ideal untuk recall adalah 1, yang men
 - **True Negative (TN)**: Model memprediksi benar tetapi hasil aktualnya negatif.
 - **False Positive (FP)**: Model memprediksi positif, tetapi hasil yang benar adalah negatif.
 - **False Negative (FN)**: Model memprediksi negatif, tetapi hasil yang benar adalah positif.
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/rrexzra36/anemia-predictive-analytics/refs/heads/main/images/evaluation.png" />
+</p>
 
 Dalam proyek machine learning ini, model yang dianggap paling efektif berdasarkan algoritma yang digunakan adalah **Random Forest**, yang menghasilkan nilai recall tertinggi di antara ketiga algoritma yang diterapkan, yaitu **1.0**.

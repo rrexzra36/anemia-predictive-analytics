@@ -11,6 +11,11 @@
 
 Anemia merupakan kondisi kesehatan yang ditandai dengan rendahnya kadar hemoglobin dalam darah, sehingga tubuh tidak mendapatkan cukup oksigen yang dibutuhkan untuk fungsi optimal. Kondisi ini menjadi perhatian kesehatan masyarakat global, terutama di negara berkembang, karena prevalensinya yang tinggi dan dampaknya terhadap produktivitas serta kualitas hidup. Predictive analysis atau analisis prediktif menjadi salah satu pendekatan yang efektif dalam mendeteksi risiko anemia lebih awal, yang memungkinkan intervensi yang tepat waktu dan lebih efisien. Laporan ini berfokus pada penerapan teknik predictive analysis untuk memprediksi kemungkinan seseorang menderita anemia berdasarkan data yang tersedia, serta memberikan wawasan bagi pengambilan keputusan dalam upaya pencegahan dan penanganan anemia secara lebih terarah.
 
+**Referensi:**
+- [Revolutionizing anemia detection: integrative machine learning models and advanced attention mechanisms](https://vciba.springeropen.com/articles/10.1186/s42492-024-00169-4) 
+- [Anemia Prediction Using Machine Learning Algorithms](https://link.springer.com/chapter/10.1007/978-3-031-58604-0_20)
+- [Machine Learning and Predictive Analytics: Advancing Disease Prevention in Healthcare](https://publications.dlpress.org/index.php/jcha/article/view/16)
+
 ## Business Understanding
 
 ### Problem Statements
@@ -263,7 +268,7 @@ dengan TP menunjukkan true positive. Nilai ideal untuk recall adalah 1, yang men
 - **False Positive (FP)**: Model memprediksi positif, tetapi hasil yang benar adalah negatif.
 - **False Negative (FN)**: Model memprediksi negatif, tetapi hasil yang benar adalah positif.
 
-### Penjelasan Hasil Evaluasi tiap Model:
+### Penjelasan Hasil Evaluasi tiap Model
 1. **K-Nearest Neighbor (KNN)**\
 Berdasarkan hasil evaluasi, precision untuk kelas 0 mencapai 1.00, menunjukkan bahwa setiap prediksi kelas 0 sepenuhnya benar. Sementara itu, precision untuk kelas 1 adalah 0.92, menandakan adanya beberapa prediksi yang salah pada kelas ini. Recall model untuk kelas 0 adalah 0.93, yang berarti model mampu mendeteksi 93.4% dari semua contoh kelas 0, sedangkan recall untuk kelas 1 mencapai 1.00, yang menunjukkan bahwa model mendeteksi semua contoh kelas 1 dengan sempurna. Nilai F1-score, yang merupakan rata-rata harmonis antara precision dan recall, tercatat sebesar 0.97 untuk kelas 0 dan 0.96 untuk kelas 1, menandakan keseimbangan performa yang baik dalam mendeteksi kedua kelas. Secara keseluruhan, akurasi model tercatat sebesar 96.26%, yang mengindikasikan bahwa sebagian besar prediksi model sudah benar. Metrik macro average menunjukkan rata-rata precision, recall, dan F1-score sebesar 0.96, sementara weighted average yang mempertimbangkan distribusi data memberikan hasil serupa. Dengan demikian, model KNN ini memiliki performa yang baik dan cukup konsisten dalam mengklasifikasikan kedua kelas dengan distribusi yang seimbang.
 <p align="center">

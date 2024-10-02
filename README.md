@@ -54,33 +54,33 @@ Dataset yang digunakan dalam proyek machine learning ini merupakan dataset anemi
 - **Results** : Status penyakit anemia (0 = Negatif Anemia, 1 = Positif Anemia)
 
 ### Hasil Visualisasi dan Analisis Data
-  1. **Univariate Analysis** 
+  1. **Univariate Analysis**
+  Dari keseluruhan populasi, 46,3% orang terindikasi menderita anemia, sementara 53,7% lainnya tidak mengalami anemia. Dengan demikian, meskipun sedikit lebih dari separuh populasi tidak terpengaruh oleh anemia, hampir setengah dari total populasi masih mengalami kondisi tersebut, menunjukkan prevalensi anemia yang signifikan.
   <p align="center">
       <img src="https://raw.githubusercontent.com/rrexzra36/anemia-predictive-analytics/refs/heads/main/images/uni_analysis.png" width="50%" />
   </p>
-  Dari keseluruhan populasi, 46,3% orang terindikasi menderita anemia, sementara 53,7% lainnya tidak mengalami anemia. Dengan demikian, meskipun sedikit lebih dari separuh populasi tidak terpengaruh oleh anemia, hampir setengah dari total populasi masih mengalami kondisi tersebut, menunjukkan prevalensi anemia yang signifikan.
 
   2. **Bivariate Analysis**
+  Berdasarkan analisis boxplot, dapat disimpulkan bahwa terdapat perbedaan signifikan pada kadar hemoglobin berdasarkan jenis kelamin dan hasil tes. Pria secara umum memiliki kadar hemoglobin yang lebih tinggi dibandingkan wanita, baik pada kelompok dengan hasil tes positif maupun negatif. Selain itu, hasil tes juga mempengaruhi kadar hemoglobin, di mana individu dengan hasil negatif cenderung memiliki kadar hemoglobin yang lebih tinggi dibandingkan individu dengan hasil positif. Kelompok wanita dengan hasil positif menunjukkan kadar hemoglobin terendah dibandingkan kelompok lainnya, bahkan terdapat beberapa outlier yang menunjukkan nilai hemoglobin sangat rendah. Secara keseluruhan, pria dengan hasil negatif memiliki rentang kadar hemoglobin yang lebih luas dan lebih tinggi, sementara wanita dengan hasil positif memiliki rentang kadar hemoglobin yang lebih sempit dengan nilai yang lebih rendah.
   <p align="center">
       <img src="https://raw.githubusercontent.com/rrexzra36/anemia-predictive-analytics/refs/heads/main/images/bi_analysis.png" width="50%" />
   </p>
-  Berdasarkan analisis boxplot, dapat disimpulkan bahwa terdapat perbedaan signifikan pada kadar hemoglobin berdasarkan jenis kelamin dan hasil tes. Pria secara umum memiliki kadar hemoglobin yang lebih tinggi dibandingkan wanita, baik pada kelompok dengan hasil tes positif maupun negatif. Selain itu, hasil tes juga mempengaruhi kadar hemoglobin, di mana individu dengan hasil negatif cenderung memiliki kadar hemoglobin yang lebih tinggi dibandingkan individu dengan hasil positif. Kelompok wanita dengan hasil positif menunjukkan kadar hemoglobin terendah dibandingkan kelompok lainnya, bahkan terdapat beberapa outlier yang menunjukkan nilai hemoglobin sangat rendah. Secara keseluruhan, pria dengan hasil negatif memiliki rentang kadar hemoglobin yang lebih luas dan lebih tinggi, sementara wanita dengan hasil positif memiliki rentang kadar hemoglobin yang lebih sempit dengan nilai yang lebih rendah.
 
 
   3. **Multivariate Analysis**
+  Scatter plot di antara variabel-variabel ini memperlihatkan pola-pola hubungan yang tersebar, meskipun untuk beberapa variabel (seperti Hemoglobin dan MCV), terdapat pemisahan yang lebih jelas antara individu yang anemik dan tidak anemik. Pairplot ini membantu mengidentifikasi pola keterkaitan antar variabel serta bagaimana hasil tes anemia mempengaruhi distribusi variabel-variabel tersebut.
   <p align="center">
       <img src="https://raw.githubusercontent.com/rrexzra36/anemia-predictive-analytics/refs/heads/main/images/multi_analysis.png" width="50%" />
   </p>
-  Scatter plot di antara variabel-variabel ini memperlihatkan pola-pola hubungan yang tersebar, meskipun untuk beberapa variabel (seperti Hemoglobin dan MCV), terdapat pemisahan yang lebih jelas antara individu yang anemik dan tidak anemik. Pairplot ini membantu mengidentifikasi pola keterkaitan antar variabel serta bagaimana hasil tes anemia mempengaruhi distribusi variabel-variabel tersebut.
   
   4. **Outlier & Distribution Analysis**
+  Visualisasi boxplot berguna untuk mendeteksi keberadaan outlier pada setiap fitur. Dari analisis data yang digunakan, tidak terdapat outlier yang teridentifikasi. Selanjutnya, pada histogram distribusi normal, fitur MCH, MCHC, dan MCV menunjukkan pola distribusi yang normal. Di sisi lain, fitur Hemoglobin menunjukkan kecenderungan sedikit miring ke arah kiri (left-skewed).
   <p align="center">
       <img src="https://raw.githubusercontent.com/rrexzra36/anemia-predictive-analytics/refs/heads/main/images/out_boxplot.png" width="50%" />
   </p>
   <p align="center">
       <img src="https://raw.githubusercontent.com/rrexzra36/anemia-predictive-analytics/refs/heads/main/images/out_hist.png" width="50%" />
   </p>
-  Visualisasi boxplot berguna untuk mendeteksi keberadaan outlier pada setiap fitur. Dari analisis data yang digunakan, tidak terdapat outlier yang teridentifikasi. Selanjutnya, pada histogram distribusi normal, fitur MCH, MCHC, dan MCV menunjukkan pola distribusi yang normal. Di sisi lain, fitur Hemoglobin menunjukkan kecenderungan sedikit miring ke arah kiri (left-skewed).
 
 
 ## Data Preparation
@@ -106,7 +106,7 @@ Pada proyek ini, algoritma machine learning yang diterapkan mencakup beberapa me
 ### **Algoritma K-Nearest Neighbor (KNN)** <br>
 
 <p align="center">
-      <img src="asd" width="50%" />
+      <img src="https://raw.githubusercontent.com/rrexzra36/anemia-predictive-analytics/refs/heads/main/images/knn.png" width=80%" />
 </p>
 
 KNN adalah salah satu algoritma klasifikasi yang sederhana namun sangat populer digunakan dalam machine learning. KNN bekerja dengan menentukan class dari data baru berdasarkan sejumlah K data terdekat yang dijadikan acuan. Algoritma ini menggunakan jarak (similarity) sebagai dasar untuk membandingkan setiap data, di mana K tetangga terdekat dari data baru dipilih untuk menentukan class yang paling sesuai. Dalam proyek ini, proses pemodelan menggunakan KNN dilakukan dengan memanfaatkan modul KNeighborsClassifier() yang tersedia di library scikit-learn. Parameter yang digunakan adalah `n_neighbors = 10`, yang berarti model akan menggunakan 10 data terdekat sebagai acuan dalam menentukan class pada proses klasifikasi. 
@@ -143,7 +143,7 @@ Untuk menghitung similarity, proyek ini menggunakan minkowski distance sebagai m
 ### Algoritma Support Vector Machine (SVM)  <br>
 
 <p align="center">
-      <img src="asd" width="50%" />
+      <img src="https://raw.githubusercontent.com/rrexzra36/anemia-predictive-analytics/refs/heads/main/images/svm.jpg" width="80%" />
 </p>
 
 berfungsi untuk menemukan *hyperplane* terbaik dengan cara memaksimalkan jarak antara kelas-kelas. *Hyperplane* adalah sebuah fungsi yang berfungsi sebagai pemisah antara kelas. Dalam ruang dua dimensi, fungsi yang digunakan untuk klasifikasi antar kelas disebut sebagai garis, sementara fungsi yang digunakan untuk klasifikasi dalam tiga dimensi disebut sebagai bidang. Demikian pula, fungsi yang digunakan untuk klasifikasi dalam ruang berdimensi lebih tinggi disebut *hyperplane*.
@@ -183,7 +183,7 @@ Pada tahap pemodelan, algoritma Support Vector Machine (SVM) yang digunakan mene
 ### Algoritma Random Forest (RF)<br>
 
 <p align="center">
-      <img src="asd" width="50%" />
+      <img src="https://raw.githubusercontent.com/rrexzra36/anemia-predictive-analytics/refs/heads/main/images/random-forest.jpg" width="80%" />
 </p>
 
 Memanfaatkan kombinasi beberapa pohon keputusan (*decision tree*) untuk menghasilkan prediksi yang lebih akurat. Prinsip dasar dari Random Forest adalah bahwa beberapa pohon keputusan yang tidak saling berkorelasi akan berfungsi lebih baik sebagai kelompok dibandingkan jika mereka beroperasi secara individual. Saat Random Forest digunakan sebagai pengklasifikasi, setiap pohon keputusan memberikan satu suara, dan setiap pohon keputusan dapat menghasilkan jawaban yang sama atau berbeda. Sebagai contoh, pohon keputusan A, B, E, dan F mungkin memprediksi hasil 1, sementara pohon keputusan C dan D memprediksi hasil 0. Dengan banyaknya kemungkinan jawaban dari pohon keputusan dan risiko bias yang tinggi, Random Forest mengambil prediksi dari sejumlah pohon keputusan berdasarkan suara mayoritas, sehingga menghasilkan prediksi yang lebih akurat.

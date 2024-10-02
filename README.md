@@ -54,26 +54,26 @@ Dataset yang digunakan dalam proyek machine learning ini merupakan dataset anemi
 - **Results** : Status penyakit anemia (0 = Negatif Anemia, 1 = Positif Anemia)
 
 ### Hasil Visualisasi dan Analisis Data
-  1. **Univariate Analysis**
+  1. **Univariate Analysis**\
   Dari keseluruhan populasi, 46,3% orang terindikasi menderita anemia, sementara 53,7% lainnya tidak mengalami anemia. Dengan demikian, meskipun sedikit lebih dari separuh populasi tidak terpengaruh oleh anemia, hampir setengah dari total populasi masih mengalami kondisi tersebut, menunjukkan prevalensi anemia yang signifikan.
   <p align="center">
       <img src="https://raw.githubusercontent.com/rrexzra36/anemia-predictive-analytics/refs/heads/main/images/uni_analysis.png" width="50%" />
   </p>
 
-  2. **Bivariate Analysis**
+  2. **Bivariate Analysis**\
   Berdasarkan analisis boxplot, dapat disimpulkan bahwa terdapat perbedaan signifikan pada kadar hemoglobin berdasarkan jenis kelamin dan hasil tes. Pria secara umum memiliki kadar hemoglobin yang lebih tinggi dibandingkan wanita, baik pada kelompok dengan hasil tes positif maupun negatif. Selain itu, hasil tes juga mempengaruhi kadar hemoglobin, di mana individu dengan hasil negatif cenderung memiliki kadar hemoglobin yang lebih tinggi dibandingkan individu dengan hasil positif. Kelompok wanita dengan hasil positif menunjukkan kadar hemoglobin terendah dibandingkan kelompok lainnya, bahkan terdapat beberapa outlier yang menunjukkan nilai hemoglobin sangat rendah. Secara keseluruhan, pria dengan hasil negatif memiliki rentang kadar hemoglobin yang lebih luas dan lebih tinggi, sementara wanita dengan hasil positif memiliki rentang kadar hemoglobin yang lebih sempit dengan nilai yang lebih rendah.
   <p align="center">
       <img src="https://raw.githubusercontent.com/rrexzra36/anemia-predictive-analytics/refs/heads/main/images/bi_analysis.png" width="50%" />
   </p>
 
 
-  3. **Multivariate Analysis**
+  3. **Multivariate Analysis**\
   Scatter plot di antara variabel-variabel ini memperlihatkan pola-pola hubungan yang tersebar, meskipun untuk beberapa variabel (seperti Hemoglobin dan MCV), terdapat pemisahan yang lebih jelas antara individu yang anemik dan tidak anemik. Pairplot ini membantu mengidentifikasi pola keterkaitan antar variabel serta bagaimana hasil tes anemia mempengaruhi distribusi variabel-variabel tersebut.
   <p align="center">
       <img src="https://raw.githubusercontent.com/rrexzra36/anemia-predictive-analytics/refs/heads/main/images/multi_analysis.png" width="50%" />
   </p>
   
-  4. **Outlier & Distribution Analysis**
+  4. **Outlier & Distribution Analysis**\
   Visualisasi boxplot berguna untuk mendeteksi keberadaan outlier pada setiap fitur. Dari analisis data yang digunakan, tidak terdapat outlier yang teridentifikasi. Selanjutnya, pada histogram distribusi normal, fitur MCH, MCHC, dan MCV menunjukkan pola distribusi yang normal. Di sisi lain, fitur Hemoglobin menunjukkan kecenderungan sedikit miring ke arah kiri (left-skewed).
   <p align="center">
       <img src="https://raw.githubusercontent.com/rrexzra36/anemia-predictive-analytics/refs/heads/main/images/out_boxplot.png" width="50%" />

@@ -226,31 +226,35 @@ Model KNN menghasilkan 57 negatif benar (TN) dan 44 positif benar (TP), serta me
 ### Perhitungan Evaluasi
 Berikut adalah penjelasan mengenai metrik evaluasi yang digunakan, serta analisis hasil proyek berdasarkan 4 metrik yaitu **akurasi, precision, recall, dan F1 score**:
 
-1. **Akurasi (Accuracy)** merupakan rasio jumlah observasi yang diklasifikasikan dengan benar terhadap total observasi. Akurasi dapat menyesatkan dalam dataset yang tidak seimbang, sehingga sering dilengkapi dengan presisi dan recall. Rumusnya adalah:
+1. **Akurasi (Accuracy)**\
+Rasio jumlah observasi yang diklasifikasikan dengan benar terhadap total observasi. Akurasi dapat menyesatkan dalam dataset yang tidak seimbang, sehingga sering dilengkapi dengan presisi dan recall. Rumusnya adalah:
 
 <p align="center">
   <img src="https://latex.codecogs.com/svg.image?{\color{White}Akurasi=\frac{True&space;Positives&plus;True&space;Negative}{Total&space;Observasi}}">
 </p>
 
-2. **Presisi (Precision)** adalah rasio antara jumlah prediksi positif yang benar dengan total prediksi positif. Presisi penting dalam konteks di mana biaya dari false positives (prediksi positif yang salah) tinggi. Rumusnya adalah:
+2. **Presisi (Precision)**\
+Rasio antara jumlah prediksi positif yang benar dengan total prediksi positif. Presisi penting dalam konteks di mana biaya dari false positives (prediksi positif yang salah) tinggi. Rumusnya adalah:
 
 <p align="center">
   <img src="https://latex.codecogs.com/svg.image?{\color{White}Presisi=\frac{True&space;Positives}{True&space;Positives&plus;False&space;Negatives}}">
 </p>
 
-3. **Recall** digunakan untuk mengukur kemampuan model untuk menemukan semua kasus relevan (yaitu, true positives). Recall sangat penting dalam situasi di mana kehilangan kasus positif (false negative) dapat berakibat serius. Rumusnya adalah:
+3. **Recall**\
+Digunakan untuk mengukur kemampuan model untuk menemukan semua kasus relevan (yaitu, true positives). Recall sangat penting dalam situasi di mana kehilangan kasus positif (false negative) dapat berakibat serius. Rumusnya adalah:
 
 <p align="center">
   <img src="https://latex.codecogs.com/svg.image?{\color{White}Recall=\frac{True&space;Positives}{True&space;Positives&plus;False&space;Negatives}}">
 </p>
 
-4. **Skor F1 (F1 Score)** adalah rata-rata harmonis antara presisi dan recall, memberikan keseimbangan antara kedua metrik tersebut. Skor F1 berguna ketika Anda membutuhkan satu metrik untuk menilai kinerja, terutama pada kelas yang tidak seimbang.Rumusnya adalah:
+4. **F1 Score**\
+Digunakan untuk menghitung rata-rata harmonis antara presisi dan recall, memberikan keseimbangan antara kedua metrik tersebut. Skor F1 berguna ketika Anda membutuhkan satu metrik untuk menilai kinerja, terutama pada kelas yang tidak seimbang.Rumusnya adalah:
 
 <p align="center">
   <img src="https://latex.codecogs.com/svg.image?{\color{White}Skor&space;F1=2\ast\frac{(Presisi\ast&space;Recall)}{(Presisi&plus;Recall)}}">
 </p>
 
-Dalam hal ini, metrik evaluasi yang dipilih untuk model machine learning ini adalah **recall**, yang sangat relevan untuk deteksi penyakit. Recall akan mengukur seberapa banyak *actual positive* yang dapat diidentifikasi oleh model. Ketika seorang pasien yang menderita anemia (*actual positive*) menjalani tes dan diprediksi tidak menderita anemia (*predicted negative*), biaya yang timbul akibat *false negative* bisa sangat tinggi jika penyakit tersebut tidak segera ditangani. Ini menekankan pentingnya memiliki model dengan nilai recall yang tinggi agar tidak salah dalam memprediksi pasien yang sebenarnya menderita anemia.
+Dalam hal ini, metrik evaluasi yang dipilih untuk model machine learning ini adalah **recall**, yang sangat relevan untuk deteksi penyakit. <mark>Recall akan mengukur seberapa banyak *actual positive* yang dapat diidentifikasi oleh model. Ketika seorang pasien yang menderita anemia (*actual positive*) menjalani tes dan diprediksi tidak menderita anemia (*predicted negative*), biaya yang timbul akibat *false negative* bisa sangat tinggi jika penyakit tersebut tidak segera ditangani. Ini menekankan pentingnya memiliki model dengan nilai recall yang tinggi agar tidak salah dalam memprediksi pasien yang sebenarnya menderita anemia </mark>.
 dengan TP menunjukkan true positive. Nilai ideal untuk recall adalah 1, yang menunjukkan tidak adanya *false negative* (FN = 0). Ketika nilai FN meningkat, nilai penyebut akan lebih besar dibandingkan dengan pembilang, sehingga menyebabkan penurunan nilai recall.
 
 **Keterangan:**
@@ -260,19 +264,19 @@ dengan TP menunjukkan true positive. Nilai ideal untuk recall adalah 1, yang men
 - **False Negative (FN)**: Model memprediksi negatif, tetapi hasil yang benar adalah positif.
 
 ### Penjelasan Hasil Evaluasi tiap Model:
-1. **K-Nearest Neighbor (KNN)**
+1. **K-Nearest Neighbor (KNN)**\
 Berdasarkan hasil evaluasi, precision untuk kelas 0 mencapai 1.00, menunjukkan bahwa setiap prediksi kelas 0 sepenuhnya benar. Sementara itu, precision untuk kelas 1 adalah 0.92, menandakan adanya beberapa prediksi yang salah pada kelas ini. Recall model untuk kelas 0 adalah 0.93, yang berarti model mampu mendeteksi 93.4% dari semua contoh kelas 0, sedangkan recall untuk kelas 1 mencapai 1.00, yang menunjukkan bahwa model mendeteksi semua contoh kelas 1 dengan sempurna. Nilai F1-score, yang merupakan rata-rata harmonis antara precision dan recall, tercatat sebesar 0.97 untuk kelas 0 dan 0.96 untuk kelas 1, menandakan keseimbangan performa yang baik dalam mendeteksi kedua kelas. Secara keseluruhan, akurasi model tercatat sebesar 96.26%, yang mengindikasikan bahwa sebagian besar prediksi model sudah benar. Metrik macro average menunjukkan rata-rata precision, recall, dan F1-score sebesar 0.96, sementara weighted average yang mempertimbangkan distribusi data memberikan hasil serupa. Dengan demikian, model KNN ini memiliki performa yang baik dan cukup konsisten dalam mengklasifikasikan kedua kelas dengan distribusi yang seimbang.
 <p align="center">
   <img src="https://raw.githubusercontent.com/rrexzra36/anemia-predictive-analytics/refs/heads/main/images/eval_knn.png" />
 </p>
 
-2. **Support Vector Machine (SVM)**
+2. **Support Vector Machine (SVM)**\
 Berdasarkan hasil evaluasi, precision untuk kelas 0 mencapai 1.00, yang menunjukkan bahwa setiap prediksi untuk kelas ini benar. Precision untuk kelas 1 tercatat sebesar 0.92, menandakan adanya beberapa prediksi yang tidak tepat untuk kelas ini. Dari segi recall, model mampu mendeteksi 93.4% dari semua contoh kelas 0 dengan nilai 0.93, sedangkan recall untuk kelas 1 mencapai 1.00, yang berarti semua contoh kelas 1 terdeteksi dengan sempurna. F1-score, yang merepresentasikan keseimbangan antara precision dan recall, tercatat sebesar 0.97 untuk kelas 0 dan 0.96 untuk kelas 1, menunjukkan kinerja yang kuat di kedua kelas. Akurasi model secara keseluruhan tercatat sebesar 96.26%, yang menunjukkan bahwa sebagian besar prediksi model sudah tepat. Rata-rata metrik (macro average) precision, recall, dan F1-score di antara kedua kelas masing-masing sebesar 0.96, dan weighted average yang mempertimbangkan distribusi data menunjukkan hasil yang serupa. Secara keseluruhan, model SVM ini memiliki performa yang sangat baik dan seimbang.
 <p align="center">
   <img src="https://raw.githubusercontent.com/rrexzra36/anemia-predictive-analytics/refs/heads/main/images/eval_svm.png" />
 </p>
 
-3. **Random Forest (RF)**
+3. **Random Forest (RF)**\
 Hasil evaluasi model Random Forest menunjukkan performa yang sangat sempurna dalam mengklasifikasikan dua kelas (kelas 0 dan kelas 1). Precision, recall, dan F1-score untuk kedua kelas, yaitu kelas 0 dan kelas 1, semuanya tercatat sebesar 1.00. Ini berarti bahwa model tidak membuat kesalahan dalam prediksi, baik dalam hal ketepatan (precision), kemampuan mendeteksi semua contoh yang benar (recall), maupun keseimbangan antara precision dan recall (F1-score). Akurasi model juga mencapai 100%, yang menunjukkan bahwa semua prediksi model untuk data uji adalah benar. Rata-rata metrik untuk macro average dan weighted average juga bernilai 1.00, yang mengindikasikan bahwa model bekerja secara konsisten dan seimbang tanpa adanya bias terhadap kelas tertentu. Secara keseluruhan, model Random Forest ini menunjukkan performa yang sangat optimal dalam klasifikasi, dengan semua metrik evaluasi berada di tingkat maksimum.
 <p align="center">
   <img src="https://raw.githubusercontent.com/rrexzra36/anemia-predictive-analytics/refs/heads/main/images/eval_rf.png" />

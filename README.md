@@ -1,4 +1,11 @@
 # Laporan Proyek Machine Learning - Reyhan Ezra Bimantara
+<p align="center">
+      <img src="https://raw.githubusercontent.com/rrexzra36/anemia-predictive-analytics/refs/heads/main/images/background.jpg"/>
+</p>
+
+<p align="center">
+  Sumber gambar: <strong><a href="https://cegahstunting.id/berita/potret-anemia-pada-remaja-indonesia/">Potret Anemia Pada Remaja</a></strong>
+</p>
 
 ## Domain Proyek
 
@@ -37,7 +44,7 @@ Untuk mencapai tujuan yang ditetapkan, penelitian ini mengadopsi beberapa langka
   <img src="https://raw.githubusercontent.com/rrexzra36/anemia-predictive-analytics/refs/heads/main/images/dataset.png" />
 </p>
 
-Dataset yang digunakan dalam proyek machine learning ini merupakan dataset anemia yang terdiri dari 1421 entri data atau record. Dataset ini bersifat open-source, yang berarti tersedia secara bebas untuk digunakan oleh publik, dan telah dipublikasikan oleh Biswa Ranjan Rao melalui platform Kaggle dengan judul [Anemia Dataset](https://www.kaggle.com/datasets/biswaranjanrao/anemia-dataset). Topik utama yang diusung oleh dataset ini adalah kesehatan, khususnya terkait kondisi anemia. Format file dataset tersebut adalah CSV (comma-separated values), yaitu format yang umum digunakan untuk penyimpanan data tabular karena memungkinkan penyusunan data dalam bentuk baris dan kolom. Dengan ukuran file sebesar 34.63 kB, dataset ini relatif ringan dan mudah diakses. Informasi yang terkandung di dalamnya mencakup berbagai fitur yang relevan untuk analisis prediktif anemia, sehingga cocok untuk digunakan dalam pengembangan dan pengujian model machine learning. Penggunaan dataset ini memungkinkan proyek ini untuk memanfaatkan data nyata dalam upaya memprediksi kondisi anemia pada manusia dengan lebih akurat dan efisien.
+Dataset yang digunakan dalam proyek machine learning ini merupakan dataset anemia yang terdiri dari 1421 entri data atau record. Dataset ini bersifat open-source, yang berarti tersedia secara bebas untuk digunakan oleh publik, dan telah dipublikasikan oleh Biswa Ranjan Rao melalui platform Kaggle dengan judul **[Anemia Dataset](https://www.kaggle.com/datasets/biswaranjanrao/anemia-dataset)**. Topik utama yang diusung oleh dataset ini adalah kesehatan, khususnya terkait kondisi anemia. Format file dataset tersebut adalah CSV (comma-separated values), yaitu format yang umum digunakan untuk penyimpanan data tabular karena memungkinkan penyusunan data dalam bentuk baris dan kolom. Dengan ukuran file sebesar 34.63 kB, dataset ini relatif ringan dan mudah diakses. Informasi yang terkandung di dalamnya mencakup berbagai fitur yang relevan untuk analisis prediktif anemia, sehingga cocok untuk digunakan dalam pengembangan dan pengujian model machine learning. Penggunaan dataset ini memungkinkan proyek ini untuk memanfaatkan data nyata dalam upaya memprediksi kondisi anemia pada manusia dengan lebih akurat dan efisien.
 
 **Variabel-variabel pada Restaurant UCI dataset adalah sebagai berikut:**
 - **Gender** : jenis kelamin responden (0 = Laki-laki, 1 = Perempuan).
@@ -49,29 +56,29 @@ Dataset yang digunakan dalam proyek machine learning ini merupakan dataset anemi
 **Hasil Visualisasi dan Analisis Data:**
   1. **Univariate Analysis** 
   <p align="center">
-      <img src="https://raw.githubusercontent.com/rrexzra36/anemia-predictive-analytics/refs/heads/main/images/uni_analysis.png" width="35%" />
+      <img src="https://raw.githubusercontent.com/rrexzra36/anemia-predictive-analytics/refs/heads/main/images/uni_analysis.png" width="50%" />
   </p>
   Dari keseluruhan populasi, 46,3% orang terindikasi menderita anemia, sementara 53,7% lainnya tidak mengalami anemia. Dengan demikian, meskipun sedikit lebih dari separuh populasi tidak terpengaruh oleh anemia, hampir setengah dari total populasi masih mengalami kondisi tersebut, menunjukkan prevalensi anemia yang signifikan.
 
   2. **Bivariate Analysis**
   <p align="center">
-      <img src="https://raw.githubusercontent.com/rrexzra36/anemia-predictive-analytics/refs/heads/main/images/bi_analysis.png" width="35%" />
+      <img src="https://raw.githubusercontent.com/rrexzra36/anemia-predictive-analytics/refs/heads/main/images/bi_analysis.png" width="50%" />
   </p>
   Berdasarkan analisis boxplot, dapat disimpulkan bahwa terdapat perbedaan signifikan pada kadar hemoglobin berdasarkan jenis kelamin dan hasil tes. Pria secara umum memiliki kadar hemoglobin yang lebih tinggi dibandingkan wanita, baik pada kelompok dengan hasil tes positif maupun negatif. Selain itu, hasil tes juga mempengaruhi kadar hemoglobin, di mana individu dengan hasil negatif cenderung memiliki kadar hemoglobin yang lebih tinggi dibandingkan individu dengan hasil positif. Kelompok wanita dengan hasil positif menunjukkan kadar hemoglobin terendah dibandingkan kelompok lainnya, bahkan terdapat beberapa outlier yang menunjukkan nilai hemoglobin sangat rendah. Secara keseluruhan, pria dengan hasil negatif memiliki rentang kadar hemoglobin yang lebih luas dan lebih tinggi, sementara wanita dengan hasil positif memiliki rentang kadar hemoglobin yang lebih sempit dengan nilai yang lebih rendah.
 
 
   3. **Multivariate Analysis**
   <p align="center">
-      <img src="https://raw.githubusercontent.com/rrexzra36/anemia-predictive-analytics/refs/heads/main/images/multi_analysis.png" width="35%" />
+      <img src="https://raw.githubusercontent.com/rrexzra36/anemia-predictive-analytics/refs/heads/main/images/multi_analysis.png" width="50%" />
   </p>
   Scatter plot di antara variabel-variabel ini memperlihatkan pola-pola hubungan yang tersebar, meskipun untuk beberapa variabel (seperti Hemoglobin dan MCV), terdapat pemisahan yang lebih jelas antara individu yang anemik dan tidak anemik. Pairplot ini membantu mengidentifikasi pola keterkaitan antar variabel serta bagaimana hasil tes anemia mempengaruhi distribusi variabel-variabel tersebut.
   
   4. **Outlier & Distribution Analysis**
   <p align="center">
-      <img src="https://raw.githubusercontent.com/rrexzra36/anemia-predictive-analytics/refs/heads/main/images/out_boxplot.png" width="35%" />
+      <img src="https://raw.githubusercontent.com/rrexzra36/anemia-predictive-analytics/refs/heads/main/images/out_boxplot.png" width="50%" />
   </p>
   <p align="center">
-      <img src="https://raw.githubusercontent.com/rrexzra36/anemia-predictive-analytics/refs/heads/main/images/out_hist.png" width="35%" />
+      <img src="https://raw.githubusercontent.com/rrexzra36/anemia-predictive-analytics/refs/heads/main/images/out_hist.png" width="50%" />
   </p>
   Visualisasi boxplot berguna untuk mendeteksi keberadaan outlier pada setiap fitur. Dari analisis data yang digunakan, tidak terdapat outlier yang teridentifikasi. Selanjutnya, pada histogram distribusi normal, fitur MCH, MCHC, dan MCV menunjukkan pola distribusi yang normal. Di sisi lain, fitur Hemoglobin menunjukkan kecenderungan sedikit miring ke arah kiri (left-skewed).
 

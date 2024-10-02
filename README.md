@@ -1,6 +1,6 @@
 # Laporan Proyek Machine Learning - Reyhan Ezra Bimantara
 <p align="center">
-      <img src="https://raw.githubusercontent.com/rrexzra36/anemia-predictive-analytics/refs/heads/main/images/background.jpg"/>
+      <img src="https://raw.githubusercontent.com/rrexzra36/anemia-predictive-analytics/refs/heads/main/images/background.jpg" width="100%"/>
 </p>
 
 <p align="center">
@@ -46,14 +46,14 @@ Untuk mencapai tujuan yang ditetapkan, penelitian ini mengadopsi beberapa langka
 
 Dataset yang digunakan dalam proyek machine learning ini merupakan dataset anemia yang terdiri dari 1421 entri data atau record. Dataset ini bersifat open-source, yang berarti tersedia secara bebas untuk digunakan oleh publik, dan telah dipublikasikan oleh Biswa Ranjan Rao melalui platform Kaggle dengan judul **[Anemia Dataset](https://www.kaggle.com/datasets/biswaranjanrao/anemia-dataset)**. Topik utama yang diusung oleh dataset ini adalah kesehatan, khususnya terkait kondisi anemia. Format file dataset tersebut adalah CSV (comma-separated values), yaitu format yang umum digunakan untuk penyimpanan data tabular karena memungkinkan penyusunan data dalam bentuk baris dan kolom. Dengan ukuran file sebesar 34.63 kB, dataset ini relatif ringan dan mudah diakses. Informasi yang terkandung di dalamnya mencakup berbagai fitur yang relevan untuk analisis prediktif anemia, sehingga cocok untuk digunakan dalam pengembangan dan pengujian model machine learning. Penggunaan dataset ini memungkinkan proyek ini untuk memanfaatkan data nyata dalam upaya memprediksi kondisi anemia pada manusia dengan lebih akurat dan efisien.
 
-**Variabel-variabel pada Restaurant UCI dataset adalah sebagai berikut:**
+**Variabel-variabel pada Anemia Dataset adalah sebagai berikut:**
 - **Gender** : jenis kelamin responden (0 = Laki-laki, 1 = Perempuan).
 - **MCH** : *Mean Corpuscular Hemoglobin*, rata-rata massa hemoglobin per sel darah merah dalam sampel darah.
 - **MCHC** : *Mean Corpuscular Hemoglobin Concentration*, konsentrasi rata-rata hemoglobin dalam satu sel darah merah.
 - **MCV** : *Mean Corpuscular Volume*, perhitungan ukuran rata-rata sel darah merah.
 - **Results** : Status penyakit anemia (0 = Negatif Anemia, 1 = Positif Anemia)
 
-**Hasil Visualisasi dan Analisis Data:**
+### Hasil Visualisasi dan Analisis Data
   1. **Univariate Analysis** 
   <p align="center">
       <img src="https://raw.githubusercontent.com/rrexzra36/anemia-predictive-analytics/refs/heads/main/images/uni_analysis.png" width="50%" />
@@ -102,8 +102,17 @@ Teknik yang digunakan pada notebook untuk data Data Preparation yaitu:
 
 ## Modeling
 Pada proyek ini, algoritma machine learning yang diterapkan mencakup beberapa metode populer, yaitu `K-Nearest Neighbor`, `Support Vector Machine`, dan `Random Forest`. Setiap algoritma ini dipilih karena kemampuannya yang berbeda-beda dalam menangani masalah klasifikasi, sehingga diharapkan dapat memberikan hasil prediksi yang optimal. Masing-masing algoritma memiliki keunggulan tersendiri dalam menganalisis data dan menghasilkan model yang akurat untuk memprediksi kondisi anemia berdasarkan data yang tersedia.
-  1. **Algoritma K-Nearest Neighbor (KNN)** adalah salah satu algoritma klasifikasi yang sederhana namun sangat populer digunakan dalam machine learning. KNN bekerja dengan menentukan class dari data baru berdasarkan sejumlah K data terdekat yang dijadikan acuan. Algoritma ini menggunakan jarak (similarity) sebagai dasar untuk membandingkan setiap data, di mana K tetangga terdekat dari data baru dipilih untuk menentukan class yang paling sesuai. Dalam proyek ini, proses pemodelan menggunakan KNN dilakukan dengan memanfaatkan modul KNeighborsClassifier() yang tersedia di library scikit-learn. Parameter yang digunakan adalah `n_neighbors = 10`, yang berarti model akan menggunakan 10 data terdekat sebagai acuan dalam menentukan class pada proses klasifikasi. 
-  Untuk menghitung similarity, proyek ini menggunakan minkowski distance sebagai metrik jarak. Minkowski distance merupakan generalisasi dari beberapa jenis jarak lainnya, seperti Euclidean dan Manhattan distance. Perbedaan utama minkowski terletak pada adanya parameter p (pangkat) yang dapat diatur. Jika p=1, maka jarak yang dihitung adalah Manhattan distance, sedangkan jika p=2, maka jaraknya adalah Euclidean distance. Minkowski menghitung jarak antara dua vektor data, dan variasi nilai p ini memberikan fleksibilitas lebih dalam menentukan cara pengukuran jarak antar data pada klasifikasi KNN.
+
+### **Algoritma K-Nearest Neighbor (KNN)** <br>
+
+<p align="center">
+      <img src="asd" width="50%" />
+</p>
+
+KNN adalah salah satu algoritma klasifikasi yang sederhana namun sangat populer digunakan dalam machine learning. KNN bekerja dengan menentukan class dari data baru berdasarkan sejumlah K data terdekat yang dijadikan acuan. Algoritma ini menggunakan jarak (similarity) sebagai dasar untuk membandingkan setiap data, di mana K tetangga terdekat dari data baru dipilih untuk menentukan class yang paling sesuai. Dalam proyek ini, proses pemodelan menggunakan KNN dilakukan dengan memanfaatkan modul KNeighborsClassifier() yang tersedia di library scikit-learn. Parameter yang digunakan adalah `n_neighbors = 10`, yang berarti model akan menggunakan 10 data terdekat sebagai acuan dalam menentukan class pada proses klasifikasi. 
+
+Untuk menghitung similarity, proyek ini menggunakan minkowski distance sebagai metrik jarak. **Minkowski distance** merupakan generalisasi dari beberapa jenis jarak lainnya, seperti Euclidean dan Manhattan distance. Perbedaan utama minkowski terletak pada adanya parameter p (pangkat) yang dapat diatur. Jika `p=1`, maka jarak yang dihitung adalah Manhattan distance, sedangkan jika `p=2`, maka jaraknya adalah Euclidean distance. Minkowski menghitung jarak antara dua vektor data, dan variasi nilai p ini memberikan fleksibilitas lebih dalam menentukan cara pengukuran jarak antar data pada klasifikasi KNN.
+
   <table border="1">
   <tr>
     <th>Kelebihan KNN</th>
@@ -131,8 +140,19 @@ Pada proyek ini, algoritma machine learning yang diterapkan mencakup beberapa me
   </tr>
 </table>
 
-  2. **Algoritma Support Vector Machine (SVM)**, berfungsi untuk menemukan *hyperplane* terbaik dengan cara memaksimalkan jarak antara kelas-kelas. *Hyperplane* adalah sebuah fungsi yang berfungsi sebagai pemisah antara kelas. Dalam ruang dua dimensi, fungsi yang digunakan untuk klasifikasi antar kelas disebut sebagai garis, sementara fungsi yang digunakan untuk klasifikasi dalam tiga dimensi disebut sebagai bidang. Demikian pula, fungsi yang digunakan untuk klasifikasi dalam ruang berdimensi lebih tinggi disebut *hyperplane*.
-  Pada tahap pemodelan, algoritma Support Vector Machine (SVM) yang digunakan menerapkan metode kernel dan menerima semua vektor input yang disediakan dalam data pelatihan dengan menggunakan parameter RBF sebagai teknik kernel-nya. Kernel ini dikenal memiliki kinerja yang baik dan menghasilkan nilai kesalahan yang rendah pada hasil pelatihan. Fungsi kernel RBF dinyatakan sebagai berikut: K(x, x_i) = exp(-γ * Σ(x - x_i²))
+### Algoritma Support Vector Machine (SVM)  <br>
+
+<p align="center">
+      <img src="asd" width="50%" />
+</p>
+
+berfungsi untuk menemukan *hyperplane* terbaik dengan cara memaksimalkan jarak antara kelas-kelas. *Hyperplane* adalah sebuah fungsi yang berfungsi sebagai pemisah antara kelas. Dalam ruang dua dimensi, fungsi yang digunakan untuk klasifikasi antar kelas disebut sebagai garis, sementara fungsi yang digunakan untuk klasifikasi dalam tiga dimensi disebut sebagai bidang. Demikian pula, fungsi yang digunakan untuk klasifikasi dalam ruang berdimensi lebih tinggi disebut *hyperplane*.
+
+Pada tahap pemodelan, algoritma Support Vector Machine (SVM) yang digunakan menerapkan metode kernel dan menerima semua vektor input yang disediakan dalam data pelatihan dengan menggunakan parameter RBF sebagai teknik kernel-nya. Kernel ini dikenal memiliki kinerja yang baik dan menghasilkan nilai kesalahan yang rendah pada hasil pelatihan. Fungsi kernel RBF dinyatakan sebagai berikut: 
+  <p align="center">
+    <img src="https://latex.codecogs.com/svg.image?{\color{White}K(x,x_i{})=(-\gamma\cdot\sum(x,x_i{})^{2}})">
+
+  </p>
   <table border="1">
   <tr>
     <th>Kelebihan SVM</th>
@@ -160,7 +180,13 @@ Pada proyek ini, algoritma machine learning yang diterapkan mencakup beberapa me
   </tr>
 </table>
 
-  3. **Algoritma Random Forest**,  memanfaatkan kombinasi beberapa pohon keputusan (*decision tree*) untuk menghasilkan prediksi yang lebih akurat. Prinsip dasar dari Random Forest adalah bahwa beberapa pohon keputusan yang tidak saling berkorelasi akan berfungsi lebih baik sebagai kelompok dibandingkan jika mereka beroperasi secara individual. Saat Random Forest digunakan sebagai pengklasifikasi, setiap pohon keputusan memberikan satu suara, dan setiap pohon keputusan dapat menghasilkan jawaban yang sama atau berbeda. Sebagai contoh, pohon keputusan A, B, E, dan F mungkin memprediksi hasil 1, sementara pohon keputusan C dan D memprediksi hasil 0. Dengan banyaknya kemungkinan jawaban dari pohon keputusan dan risiko bias yang tinggi, Random Forest mengambil prediksi dari sejumlah pohon keputusan berdasarkan suara mayoritas, sehingga menghasilkan prediksi yang lebih akurat.
+### Algoritma Random Forest (RF)<br>
+
+<p align="center">
+      <img src="asd" width="50%" />
+</p>
+
+Memanfaatkan kombinasi beberapa pohon keputusan (*decision tree*) untuk menghasilkan prediksi yang lebih akurat. Prinsip dasar dari Random Forest adalah bahwa beberapa pohon keputusan yang tidak saling berkorelasi akan berfungsi lebih baik sebagai kelompok dibandingkan jika mereka beroperasi secara individual. Saat Random Forest digunakan sebagai pengklasifikasi, setiap pohon keputusan memberikan satu suara, dan setiap pohon keputusan dapat menghasilkan jawaban yang sama atau berbeda. Sebagai contoh, pohon keputusan A, B, E, dan F mungkin memprediksi hasil 1, sementara pohon keputusan C dan D memprediksi hasil 0. Dengan banyaknya kemungkinan jawaban dari pohon keputusan dan risiko bias yang tinggi, Random Forest mengambil prediksi dari sejumlah pohon keputusan berdasarkan suara mayoritas, sehingga menghasilkan prediksi yang lebih akurat.
   Penerapan algoritma Random Forest akan dilakukan dengan menggunakan modul `RandomForestClassifier()` yang tersedia di library scikit-learn. Parameter n_estimators digunakan untuk menetapkan jumlah pohon (*tree*), di mana proyek ini menggunakan 100 pohon. Setelah menentukan parameter model, langkah selanjutnya adalah membangun model dan melakukan prediksi menggunakan data pengujian. Hasil dari pengujian tersebut akan dievaluasi menggunakan metrik akurasi.
   <table border="1">
   <tr>
@@ -197,26 +223,32 @@ Model KNN menghasilkan 57 negatif benar (TN) dan 44 positif benar (TP), serta me
 <img src="https://raw.githubusercontent.com/rrexzra36/anemia-predictive-analytics/refs/heads/main/images/conf_matrix.png" alt="Confision Matrix"/>
 
 ## Evaluation
+### Perhitungan Evaluasi
 Berikut adalah penjelasan mengenai metrik evaluasi yang digunakan, serta analisis hasil proyek berdasarkan 4 metrik yaitu **akurasi, precision, recall, dan F1 score**:
 
-1. **Akurasi (Accuracy)** merupakan rasio jumlah observasi yang diklasifikasikan dengan benar terhadap total observasi. Rumusnya adalah:
-   - Akurasi = (True Positives + True Negatives) / Total Observasi
-   Akurasi dapat menyesatkan dalam dataset yang tidak seimbang, sehingga sering dilengkapi dengan presisi dan recall.
-   <br>
+1. **Akurasi (Accuracy)** merupakan rasio jumlah observasi yang diklasifikasikan dengan benar terhadap total observasi. Akurasi dapat menyesatkan dalam dataset yang tidak seimbang, sehingga sering dilengkapi dengan presisi dan recall. Rumusnya adalah:
 
-2. **Presisi (Precision)** adalah rasio antara jumlah prediksi positif yang benar dengan total prediksi positif. Rumusnya adalah:
-   - Presisi = True Positives / (True Positives + False Positives)
-   Presisi penting dalam konteks di mana biaya dari false positives (prediksi positif yang salah) tinggi.
-   <br>
+<p align="center">
+  <img src="https://latex.codecogs.com/svg.image?{\color{White}Akurasi=\frac{True&space;Positives&plus;True&space;Negative}{Total&space;Observasi}}">
+</p>
 
-3. **Recall** digunakan untuk mengukur kemampuan model untuk menemukan semua kasus relevan (yaitu, true positives). Rumusnya adalah:
-   - Recall = True Positives / (True Positives + False Negatives)
-   Recall sangat penting dalam situasi di mana kehilangan kasus positif (false negative) dapat berakibat serius.
-   <br>
+2. **Presisi (Precision)** adalah rasio antara jumlah prediksi positif yang benar dengan total prediksi positif. Presisi penting dalam konteks di mana biaya dari false positives (prediksi positif yang salah) tinggi. Rumusnya adalah:
 
-4. **Skor F1 (F1 Score)** adalah rata-rata harmonis antara presisi dan recall, memberikan keseimbangan antara kedua metrik tersebut. Rumusnya adalah:
-   - Skor F1 = 2 * (Presisi * Recall) / (Presisi + Recall)
-   Skor F1 berguna ketika Anda membutuhkan satu metrik untuk menilai kinerja, terutama pada kelas yang tidak seimbang.
+<p align="center">
+  <img src="https://latex.codecogs.com/svg.image?{\color{White}Presisi=\frac{True&space;Positives}{True&space;Positives&plus;False&space;Negatives}}">
+</p>
+
+3. **Recall** digunakan untuk mengukur kemampuan model untuk menemukan semua kasus relevan (yaitu, true positives). Recall sangat penting dalam situasi di mana kehilangan kasus positif (false negative) dapat berakibat serius. Rumusnya adalah:
+
+<p align="center">
+  <img src="https://latex.codecogs.com/svg.image?{\color{White}Recall=\frac{True&space;Positives}{True&space;Positives&plus;False&space;Negatives}}">
+</p>
+
+4. **Skor F1 (F1 Score)** adalah rata-rata harmonis antara presisi dan recall, memberikan keseimbangan antara kedua metrik tersebut. Skor F1 berguna ketika Anda membutuhkan satu metrik untuk menilai kinerja, terutama pada kelas yang tidak seimbang.Rumusnya adalah:
+
+<p align="center">
+  <img src="https://latex.codecogs.com/svg.image?{\color{White}Skor&space;F1=2\ast\frac{(Presisi\ast&space;Recall)}{(Presisi&plus;Recall)}}">
+</p>
 
 Dalam hal ini, metrik evaluasi yang dipilih untuk model machine learning ini adalah **recall**, yang sangat relevan untuk deteksi penyakit. Recall akan mengukur seberapa banyak *actual positive* yang dapat diidentifikasi oleh model. Ketika seorang pasien yang menderita anemia (*actual positive*) menjalani tes dan diprediksi tidak menderita anemia (*predicted negative*), biaya yang timbul akibat *false negative* bisa sangat tinggi jika penyakit tersebut tidak segera ditangani. Ini menekankan pentingnya memiliki model dengan nilai recall yang tinggi agar tidak salah dalam memprediksi pasien yang sebenarnya menderita anemia.
 dengan TP menunjukkan true positive. Nilai ideal untuk recall adalah 1, yang menunjukkan tidak adanya *false negative* (FN = 0). Ketika nilai FN meningkat, nilai penyebut akan lebih besar dibandingkan dengan pembilang, sehingga menyebabkan penurunan nilai recall.
@@ -227,27 +259,29 @@ dengan TP menunjukkan true positive. Nilai ideal untuk recall adalah 1, yang men
 - **False Positive (FP)**: Model memprediksi positif, tetapi hasil yang benar adalah negatif.
 - **False Negative (FN)**: Model memprediksi negatif, tetapi hasil yang benar adalah positif.
 
-**Penjelasan Hasil Evaluasi tiap Model:**
+### Penjelasan Hasil Evaluasi tiap Model:
 1. **K-Nearest Neighbor (KNN)**
+Berdasarkan hasil evaluasi, precision untuk kelas 0 mencapai 1.00, menunjukkan bahwa setiap prediksi kelas 0 sepenuhnya benar. Sementara itu, precision untuk kelas 1 adalah 0.92, menandakan adanya beberapa prediksi yang salah pada kelas ini. Recall model untuk kelas 0 adalah 0.93, yang berarti model mampu mendeteksi 93.4% dari semua contoh kelas 0, sedangkan recall untuk kelas 1 mencapai 1.00, yang menunjukkan bahwa model mendeteksi semua contoh kelas 1 dengan sempurna. Nilai F1-score, yang merupakan rata-rata harmonis antara precision dan recall, tercatat sebesar 0.97 untuk kelas 0 dan 0.96 untuk kelas 1, menandakan keseimbangan performa yang baik dalam mendeteksi kedua kelas. Secara keseluruhan, akurasi model tercatat sebesar 96.26%, yang mengindikasikan bahwa sebagian besar prediksi model sudah benar. Metrik macro average menunjukkan rata-rata precision, recall, dan F1-score sebesar 0.96, sementara weighted average yang mempertimbangkan distribusi data memberikan hasil serupa. Dengan demikian, model KNN ini memiliki performa yang baik dan cukup konsisten dalam mengklasifikasikan kedua kelas dengan distribusi yang seimbang.
 <p align="center">
   <img src="https://raw.githubusercontent.com/rrexzra36/anemia-predictive-analytics/refs/heads/main/images/eval_knn.png" />
 </p>
-Berdasarkan hasil evaluasi, precision untuk kelas 0 mencapai 1.00, menunjukkan bahwa setiap prediksi kelas 0 sepenuhnya benar. Sementara itu, precision untuk kelas 1 adalah 0.92, menandakan adanya beberapa prediksi yang salah pada kelas ini. Recall model untuk kelas 0 adalah 0.93, yang berarti model mampu mendeteksi 93.4% dari semua contoh kelas 0, sedangkan recall untuk kelas 1 mencapai 1.00, yang menunjukkan bahwa model mendeteksi semua contoh kelas 1 dengan sempurna. Nilai F1-score, yang merupakan rata-rata harmonis antara precision dan recall, tercatat sebesar 0.97 untuk kelas 0 dan 0.96 untuk kelas 1, menandakan keseimbangan performa yang baik dalam mendeteksi kedua kelas. Secara keseluruhan, akurasi model tercatat sebesar 96.26%, yang mengindikasikan bahwa sebagian besar prediksi model sudah benar. Metrik macro average menunjukkan rata-rata precision, recall, dan F1-score sebesar 0.96, sementara weighted average yang mempertimbangkan distribusi data memberikan hasil serupa. Dengan demikian, model KNN ini memiliki performa yang baik dan cukup konsisten dalam mengklasifikasikan kedua kelas dengan distribusi yang seimbang.
 
 2. **Support Vector Machine (SVM)**
+Berdasarkan hasil evaluasi, precision untuk kelas 0 mencapai 1.00, yang menunjukkan bahwa setiap prediksi untuk kelas ini benar. Precision untuk kelas 1 tercatat sebesar 0.92, menandakan adanya beberapa prediksi yang tidak tepat untuk kelas ini. Dari segi recall, model mampu mendeteksi 93.4% dari semua contoh kelas 0 dengan nilai 0.93, sedangkan recall untuk kelas 1 mencapai 1.00, yang berarti semua contoh kelas 1 terdeteksi dengan sempurna. F1-score, yang merepresentasikan keseimbangan antara precision dan recall, tercatat sebesar 0.97 untuk kelas 0 dan 0.96 untuk kelas 1, menunjukkan kinerja yang kuat di kedua kelas. Akurasi model secara keseluruhan tercatat sebesar 96.26%, yang menunjukkan bahwa sebagian besar prediksi model sudah tepat. Rata-rata metrik (macro average) precision, recall, dan F1-score di antara kedua kelas masing-masing sebesar 0.96, dan weighted average yang mempertimbangkan distribusi data menunjukkan hasil yang serupa. Secara keseluruhan, model SVM ini memiliki performa yang sangat baik dan seimbang.
 <p align="center">
-  <img src="https://raw.githubusercontent.com/rrexzra36/anemia-predictive-analytics/refs/heads/main/images/eval_rf.png" />
+  <img src="https://raw.githubusercontent.com/rrexzra36/anemia-predictive-analytics/refs/heads/main/images/eval_svm.png" />
 </p>
-Berdasarkan hasil evaluasi, precision untuk kelas 0 mencapai 1.00, yang menunjukkan bahwa setiap prediksi untuk kelas ini benar. Precision untuk kelas 1 tercatat sebesar 0.92, menandakan adanya beberapa prediksi yang tidak tepat untuk kelas ini. Dari segi recall, model mampu mendeteksi 93.4% dari semua contoh kelas 0 dengan nilai 0.93, sedangkan recall untuk kelas 1 mencapai 1.00, yang berarti semua contoh kelas 1 terdeteksi dengan sempurna. F1-score, yang merepresentasikan keseimbangan antara precision dan recall, tercatat sebesar 0.97 untuk kelas 0 dan 0.96 untuk kelas 1, menunjukkan kinerja yang kuat di kedua kelas. Akurasi model secara keseluruhan tercatat sebesar 96.26%, yang menunjukkan bahwa sebagian besar prediksi model sudah tepat. Rata-rata metrik (macro average) precision, recall, dan F1-score di antara kedua kelas masing-masing sebesar 0.96, dan weighted average yang mempertimbangkan distribusi data menunjukkan hasil yang serupa. Secara keseluruhan, model SVM ini memiliki performa yang sangat baik dan seimbang dalam
 
 3. **Random Forest (RF)**
+Hasil evaluasi model Random Forest menunjukkan performa yang sangat sempurna dalam mengklasifikasikan dua kelas (kelas 0 dan kelas 1). Precision, recall, dan F1-score untuk kedua kelas, yaitu kelas 0 dan kelas 1, semuanya tercatat sebesar 1.00. Ini berarti bahwa model tidak membuat kesalahan dalam prediksi, baik dalam hal ketepatan (precision), kemampuan mendeteksi semua contoh yang benar (recall), maupun keseimbangan antara precision dan recall (F1-score). Akurasi model juga mencapai 100%, yang menunjukkan bahwa semua prediksi model untuk data uji adalah benar. Rata-rata metrik untuk macro average dan weighted average juga bernilai 1.00, yang mengindikasikan bahwa model bekerja secara konsisten dan seimbang tanpa adanya bias terhadap kelas tertentu. Secara keseluruhan, model Random Forest ini menunjukkan performa yang sangat optimal dalam klasifikasi, dengan semua metrik evaluasi berada di tingkat maksimum.
 <p align="center">
   <img src="https://raw.githubusercontent.com/rrexzra36/anemia-predictive-analytics/refs/heads/main/images/eval_rf.png" />
 </p>
-Hasil evaluasi model Random Forest menunjukkan performa yang sangat sempurna dalam mengklasifikasikan dua kelas (kelas 0 dan kelas 1). Precision, recall, dan F1-score untuk kedua kelas, yaitu kelas 0 dan kelas 1, semuanya tercatat sebesar 1.00. Ini berarti bahwa model tidak membuat kesalahan dalam prediksi, baik dalam hal ketepatan (precision), kemampuan mendeteksi semua contoh yang benar (recall), maupun keseimbangan antara precision dan recall (F1-score). Akurasi model juga mencapai 100%, yang menunjukkan bahwa semua prediksi model untuk data uji adalah benar. Rata-rata metrik untuk macro average dan weighted average juga bernilai 1.00, yang mengindikasikan bahwa model bekerja secara konsisten dan seimbang tanpa adanya bias terhadap kelas tertentu. Secara keseluruhan, model Random Forest ini menunjukkan performa yang sangat optimal dalam klasifikasi, dengan semua metrik evaluasi berada di tingkat maksimum.
 
-**Kesimpulan:**
-- Random Forest merupakan model paling efektif dalam proyek ini, dengan nilai recall tertinggi di antara ketiga algoritma yang diterapkan, yaitu 1.0.
-- Penelitian berhasil menjawab problem statement dengan menerapkan algoritma machine learning seperti KNN, SVM, dan Random Forest untuk memprediksi anemia menggunakan data sel darah merah. Proses pengembangan model meliputi preprocessing data, exploratory data analysis (EDA), dan evaluasi kinerja model, yang berhasil menjawab tujuan prediksi anemia.
-- Penelitian ini mencapai seluruh tujuan, yaitu menjelaskan penerapan algoritma machine learning, mengembangkan model prediksi anemia, dan mengevaluasi kinerjanya. Algoritma yang digunakan dievaluasi menggunakan metrik seperti precision, recall, F1-score, dan akurasi, yang menunjukkan kinerja model yang baik.
+## Kesimpulan
+- **Random Forest merupakan model paling efektif** dalam proyek ini, dengan nilai recall tertinggi di antara ketiga algoritma yang diterapkan, yaitu 1.0.
+- Penelitian berhasil menjawab problem statement dengan menerapkan algoritma machine learning seperti KNN, SVM, dan Random Forest untuk memprediksi anemia menggunakan data sel darah merah. Proses pengembangan model meliputi *preprocessing data, exploratory data analysis (EDA)*, dan evaluasi kinerja model, yang berhasil menjawab tujuan prediksi anemia.
+- Penelitian ini mencapai seluruh tujuan, yaitu menjelaskan penerapan algoritma machine learning, mengembangkan model prediksi anemia, dan mengevaluasi kinerjanya. Algoritma yang digunakan dievaluasi menggunakan metrik seperti ***precision***, ***recall***, ***F1-score***, dan ***accuracy***, yang menunjukkan kinerja model yang baik.
 - Solusi yang diterapkan, termasuk preprocessing data, EDA, pemilihan algoritma (KNN, SVM, Random Forest), serta hyperparameter tuning, memberikan dampak signifikan terhadap performa model. Evaluasi menunjukkan bahwa model mampu memprediksi anemia dengan akurasi tinggi, mendukung deteksi dini dan pencegahan anemia secara efektif.
+<hr>
+<img src="https://raw.githubusercontent.com/rrexzra36/spotify-recommendation-system/refs/heads/main/images/Footer.png">

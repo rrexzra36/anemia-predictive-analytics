@@ -1,10 +1,10 @@
 # Laporan Proyek Machine Learning - Reyhan Ezra Bimantara
 <p align="center">
-      <img src="https://raw.githubusercontent.com/rrexzra36/anemia-predictive-analytics/refs/heads/main/images/background.jpg" width="100%"/>
+      <img src="https://raw.githubusercontent.com/rrexzra36/anemia-predictive-analytics/refs/heads/main/images/background.png" width="100%"/>
 </p>
 
 <p align="center">
-  Sumber gambar: <strong><a href="https://cegahstunting.id/berita/potret-anemia-pada-remaja-indonesia/">Potret Anemia Pada Remaja</a></strong>
+  Sumber gambar: <strong><a href="https://www.technologynetworks.com/cell-science/news/3d-bioprinted-blood-vessel-developed-352139">3D-Bioprinted Blood Vessel Developed</a></strong>
 </p>
 
 ## Domain Proyek
